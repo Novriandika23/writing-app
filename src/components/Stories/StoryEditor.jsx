@@ -148,14 +148,14 @@ export default function StoryEditor() {
       </div>
 
       {/* Gothic Editor Container */}
-      <div className="flex-1 p-4 lg:p-8">
-        <div className="max-w-5xl mx-auto">
-          <div className="medieval-card gothic-frame p-4 lg:p-8">
+      <div className="flex-1 p-2 lg:p-8 w-full">
+        <div className="max-w-5xl mx-auto w-full">
+          <div className="medieval-card gothic-frame p-2 lg:p-8 w-full">
             <RichTextEditor
               content={story.content || ''}
               onChange={handleContentChange}
               placeholder="Begin thy chronicle... Let the words flow like ancient magic across these sacred pages."
-              className="min-h-[400px] lg:min-h-[600px]"
+              className="min-h-[400px] lg:min-h-[600px] w-full"
             />
           </div>
         </div>

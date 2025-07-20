@@ -19,7 +19,7 @@ const MenuBar = ({ editor }) => {
   }
 
   return (
-    <div className="gothic-toolbar border-b-2 border-glitchRed/20 p-2 lg:p-4 flex items-center space-x-1 lg:space-x-2 bg-gradient-to-r from-darkBg to-darkBg-soft overflow-x-auto">
+    <div className="gothic-toolbar border-b-2 border-glitchRed/20 p-2 lg:p-4 flex items-center space-x-1 lg:space-x-2 bg-gradient-to-r from-darkBg to-darkBg-soft overflow-x-auto w-full">
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
@@ -184,17 +184,18 @@ export default function RichTextEditor({
   }
 
   return (
-    <div className={`gothic-editor-container overflow-hidden ${className}`}>
+    <div className={`gothic-editor-container overflow-hidden w-full ${className}`}>
       <MenuBar editor={editor} />
-      <div className="relative bg-gradient-to-br from-darkBg/30 to-darkBg-soft/30 backdrop-blur-sm">
+      <div className="relative bg-gradient-to-br from-darkBg/30 to-darkBg-soft/30 backdrop-blur-sm w-full">
         <EditorContent
           editor={editor}
-          className="gothic-prose prose prose-lg max-w-none focus:outline-none"
+          className="gothic-prose prose prose-lg max-w-none focus:outline-none w-full"
           style={{
-            minHeight: '500px',
+            minHeight: '400px',
             backgroundColor: 'transparent',
-            padding: '2rem',
-            maxWidth: '100%'
+            padding: '1rem',
+            maxWidth: '100%',
+            width: '100%'
           }}
         />
       </div>
