@@ -98,7 +98,7 @@ function Sidebar() {
         </div>
 
         {/* Gothic Navigation */}
-        <nav className={`flex-1 p-4 space-y-2 ${collapsed ? 'px-2' : ''}`}>
+        <nav className={`flex-grow p-4 space-y-2 ${collapsed ? 'px-2' : ''}`}>
           {navigation.map((item) => {
             const isActive = location.pathname.startsWith(item.href)
             return (
@@ -134,7 +134,7 @@ function Sidebar() {
         </nav>
 
         {/* Gothic User Section */}
-        <div className={`p-4 border-t border-glitchRed/20 ${collapsed ? 'px-2' : ''}`}>
+        <div className={`mt-auto p-4 border-t border-glitchRed/20 ${collapsed ? 'px-2' : ''}`}>
           {!collapsed ? (
             <div className="flex items-center">
               <div className="w-10 h-10 bg-gradient-to-br from-glitchRed-deep to-glitchRed rounded-full flex items-center justify-center border border-glitchRed/40 shadow-lg">
