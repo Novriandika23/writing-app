@@ -1,0 +1,196 @@
+/* Custom styles for the Rich Text Editor */
+.ProseMirror {
+  outline: none;
+  background: transparent;
+  color: #e2e8f0;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  line-height: 1.7;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.ProseMirror:focus {
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+}
+
+.ProseMirror p {
+  margin: 1em 0;
+  color: #e2e8f0;
+}
+
+.ProseMirror h1,
+.ProseMirror h2,
+.ProseMirror h3,
+.ProseMirror h4,
+.ProseMirror h5,
+.ProseMirror h6 {
+  color: #f1f5f9;
+  font-weight: 600;
+  margin: 1.5em 0 0.5em 0;
+}
+
+.ProseMirror h1 {
+  font-size: 2em;
+  border-bottom: 2px solid #7c3aed;
+  padding-bottom: 0.3em;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5em;
+  color: #c4b5fd;
+}
+
+.ProseMirror h3 {
+  font-size: 1.25em;
+  color: #ddd6fe;
+}
+
+.ProseMirror strong {
+  color: #c4b5fd;
+  font-weight: 600;
+}
+
+.ProseMirror em {
+  color: #c4b5fd;
+  font-style: italic;
+}
+
+.ProseMirror blockquote {
+  border-left: 4px solid #7c3aed;
+  margin: 1.5em 0;
+  padding-left: 1em;
+  color: #cbd5e1;
+  font-style: italic;
+  background: rgba(124, 58, 237, 0.1);
+  border-radius: 0 4px 4px 0;
+}
+
+.ProseMirror ul,
+.ProseMirror ol {
+  padding-left: 1.5em;
+  margin: 1em 0;
+}
+
+.ProseMirror li {
+  margin: 0.5em 0;
+  color: #e2e8f0;
+}
+
+.ProseMirror ul li::marker {
+  color: #7c3aed;
+}
+
+.ProseMirror ol li::marker {
+  color: #7c3aed;
+  font-weight: 600;
+}
+
+.ProseMirror code {
+  background: rgba(124, 58, 237, 0.2);
+  color: #c4b5fd;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.ProseMirror pre {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #475569;
+  border-radius: 6px;
+  padding: 1em;
+  margin: 1em 0;
+  overflow-x: auto;
+}
+
+.ProseMirror pre code {
+  background: none;
+  padding: 0;
+  color: #e2e8f0;
+}
+
+/* Placeholder styling */
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #64748b;
+  pointer-events: none;
+  height: 0;
+  font-style: italic;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.ProseMirror:focus p.is-editor-empty:first-child::before {
+  opacity: 0.5;
+}
+
+/* Selection styling */
+.ProseMirror ::selection {
+  background: rgba(124, 58, 237, 0.3);
+}
+
+/* Focus styling */
+.ProseMirror:focus {
+  outline: none;
+}
+
+/* Custom scrollbar for the editor */
+.ProseMirror::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ProseMirror::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 4px;
+}
+
+.ProseMirror::-webkit-scrollbar-thumb {
+  background: rgba(124, 58, 237, 0.5);
+  border-radius: 4px;
+}
+
+.ProseMirror::-webkit-scrollbar-thumb:hover {
+  background: rgba(124, 58, 237, 0.7);
+}
+
+/* Toolbar styling */
+.editor-toolbar {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.4), rgba(51, 65, 85, 0.4));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+/* Toolbar button animations */
+.editor-toolbar button {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.editor-toolbar button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.editor-toolbar button:hover::before {
+  left: 100%;
+}
+
+.editor-toolbar button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+}
+
+/* Active button styling */
+.editor-toolbar button.active {
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(147, 51, 234, 0.3));
+  box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+}
