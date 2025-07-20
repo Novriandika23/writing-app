@@ -96,13 +96,13 @@ export default function StoriesPage() {
           </div>
           <button
             onClick={() => setShowCreateModal(true)}
-            className="btn-primary group w-full lg:w-auto"
+            className="btn-primary group w-full lg:w-auto flex-shrink-0"
           >
-            <div className="flex items-center">
-              <svg className="w-6 h-6 mr-3 magical-pen" fill="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center justify-center lg:justify-start">
+              <svg className="w-5 h-5 lg:w-6 lg:h-6 mr-2 lg:mr-3 magical-pen" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M3,17.25V21H6.75L17.81,9.94L14.06,6.19L3,17.25M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04Z" />
               </svg>
-              <span className="text-white font-semibold tracking-wide">Forge New Chronicle</span>
+              <span className="text-white font-semibold tracking-wide text-sm lg:text-base">Forge New Chronicle</span>
             </div>
           </button>
         </div>
@@ -159,12 +159,12 @@ export default function StoriesPage() {
             </button>
           </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6">
           {stories.map((story) => (
             <Link
               key={story.id}
               to={`/stories/${story.id}`}
-              className="group relative medieval-card gothic-frame p-4 lg:p-8 hover:border-glitchRed/60 transition-all duration-500 transform hover:scale-105 cursor-pointer"
+              className="group relative medieval-card gothic-frame p-4 lg:p-6 hover:border-glitchRed/60 transition-all duration-500 transform hover:scale-105 cursor-pointer"
             >
               {/* Gothic Corner Ornaments */}
               <div className="absolute top-3 left-3 w-4 h-4 border-l-2 border-t-2 border-glitchRed/40"></div>

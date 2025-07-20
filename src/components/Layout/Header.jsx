@@ -22,7 +22,7 @@ function Header() {
     <header className="bg-gradient-to-r from-darkBg to-darkBg-soft border-b-2 border-glitchRed/20 px-4 lg:px-8 py-4 lg:py-6 stone-texture">
       <div className="flex items-center justify-between">
         {/* Gothic Search Area */}
-        <div className="flex-1 mr-4">
+        <div className="flex-1 mr-4 ml-12 lg:ml-0">
           <div className="max-w-lg">
             <input
               type="search"

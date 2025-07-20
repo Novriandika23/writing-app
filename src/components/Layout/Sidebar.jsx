@@ -38,9 +38,9 @@ function Sidebar() {
       {/* Mobile Menu Button */}
       <button
         onClick={toggleMobileMenu}
-        className="lg:hidden fixed top-4 left-4 z-50 p-3 bg-darkBg border border-glitchRed/30 rounded-lg text-slate-400 hover:text-glitchRed transition-colors duration-300"
+        className="lg:hidden fixed top-6 left-4 z-50 p-2 bg-darkBg/90 backdrop-blur-sm border border-glitchRed/30 rounded-lg text-slate-400 hover:text-glitchRed transition-colors duration-300 shadow-lg"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
@@ -56,7 +56,8 @@ function Sidebar() {
       {/* Sidebar */}
       <div className={`
         bg-gradient-to-b from-darkBg to-darkBg-soft border-r border-glitchRed/20 transition-all duration-300 stone-texture
-        ${collapsed ? 'w-16' : 'w-64'}
+        ${collapsed ? 'lg:w-16' : 'lg:w-64'}
+        w-64
         lg:relative lg:translate-x-0
         ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
         fixed lg:static top-0 left-0 h-full z-40
