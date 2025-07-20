@@ -104,36 +104,36 @@ export default function AuthForm() {
   }
 
   return (
-    <div className="min-h-screen dark-fantasy-bg parchment-texture flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 mystical-card bg-gray-900/80 backdrop-blur-sm rounded-2xl p-8 border border-amber-700/30 mystical-glow">
+    <div className="min-h-screen dark-fantasy-bg stone-texture flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 fade-in-slow">
+      <div className="max-w-md w-full space-y-8 medieval-card gothic-frame p-8">
         <div className="text-center">
-          {/* Enhanced Book Logo */}
-          <div className="mx-auto w-20 h-20 mb-6 relative group cursor-pointer">
-            <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-orange-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-            <div className="relative w-full h-full bg-gradient-to-br from-amber-800 to-orange-900 rounded-2xl flex items-center justify-center shadow-2xl border border-amber-600/50 group-hover:border-amber-500/70 transition-all duration-500 group-hover:scale-110 floating-book">
-              <svg className="w-10 h-10 text-amber-200 group-hover:text-amber-100 transition-colors duration-300" fill="currentColor" viewBox="0 0 24 24">
+          {/* Gothic Grimoire Symbol */}
+          <div className="mx-auto w-24 h-24 mb-8 relative group cursor-pointer">
+            <div className="absolute inset-0 bg-gradient-to-br from-glitchRed/10 to-darkBg rounded-full blur-xl group-hover:blur-2xl transition-all duration-700"></div>
+            <div className="relative w-full h-full bg-gradient-to-br from-darkBg-soft to-darkBg border-2 border-glitchRed/30 rounded-full flex items-center justify-center shadow-2xl group-hover:border-glitchRed/50 transition-all duration-700 mystical-glow">
+              <svg className="w-12 h-12 text-glitchRed group-hover:text-red-300 transition-colors duration-500 magical-pen" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19,2L14,6.5V17.5L19,13V2M6.5,5C4.55,5.05 2.45,5.4 1,6.5V21.16C1,21.41 1.25,21.66 1.5,21.66C1.6,21.66 1.65,21.59 1.75,21.59C3.1,20.94 5.05,20.68 6.5,20.68C8.45,20.68 10.55,21.1 12,22C13.35,21.15 15.8,20.68 17.5,20.68C19.15,20.68 20.85,20.9 22.25,21.56C22.35,21.61 22.4,21.66 22.5,21.66C22.75,21.66 23,21.41 23,21.16V6.5C22.4,6.05 21.75,5.75 21,5.5V19C19.9,18.65 18.7,18.5 17.5,18.5C15.8,18.5 13.35,18.9 12,19.5C10.55,18.9 8.45,18.5 6.5,18.5C5.05,18.5 3.1,18.65 1.75,19.5V6.5C3.1,5.55 5.05,5.25 6.5,5.25C8.45,5.25 10.55,5.65 12,6.5C13.35,5.65 15.8,5.25 17.5,5.25C18.7,5.25 19.9,5.4 21,5.75V2L6.5,5Z" />
               </svg>
-              {/* Mystical sparkles */}
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-amber-400 rounded-full animate-pulse group-hover:bg-amber-300"></div>
-              <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-orange-400 rounded-full animate-pulse delay-300 group-hover:bg-orange-300"></div>
-              <div className="absolute top-1 left-1 w-1 h-1 bg-yellow-400 rounded-full animate-pulse delay-500 opacity-70"></div>
+              {/* Gothic ornaments */}
+              <div className="absolute -top-2 -right-2 w-2 h-2 bg-goldAccent rounded-full animate-pulse opacity-60"></div>
+              <div className="absolute -bottom-2 -left-2 w-1.5 h-1.5 bg-glitchRed rounded-full animate-pulse delay-300"></div>
+              <div className="absolute top-1 left-1 w-1 h-1 bg-slate-400 rounded-full animate-pulse delay-700 opacity-50"></div>
             </div>
           </div>
 
-          <h2 className="text-center text-3xl font-bold text-amber-100 medieval-font mb-2">
-            {isSignUp ? 'Create your account' : 'Sign in to your account'}
+          <h2 className="text-center text-3xl font-bold gothic-title mb-4">
+            {isSignUp ? 'Join the Order' : 'Enter the Sanctum'}
           </h2>
-          <p className="text-center text-amber-200/70 rune-font">
-            {isSignUp ? 'Start your writing journey' : 'Welcome back, writer'}
+          <p className="text-center medieval-text text-lg">
+            {isSignUp ? 'Begin thy chronicle of words' : 'Return to thy sacred texts'}
           </p>
         </div>
 
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="space-y-4">
+        <form className="mt-10 space-y-8" onSubmit={handleSubmit}>
+          <div className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-amber-200 rune-font">
-                Email address
+              <label htmlFor="email" className="block text-sm font-medium ui-text mb-3">
+                Sacred Scroll Address
               </label>
               <input
                 id="email"
@@ -142,19 +142,19 @@ export default function AuthForm() {
                 autoComplete="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`mt-1 w-full px-4 py-3 bg-gray-800/70 border border-amber-700/30 rounded-lg text-amber-100 placeholder-amber-300/50 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50 transition-all duration-300 backdrop-blur-sm ${errors.email ? 'border-red-500/70 focus:ring-red-500/50' : 'hover:border-amber-600/50'}`}
-                placeholder="Enter your email"
+                className={`input-field ${errors.email ? 'border-glitchRed focus:border-glitchRed' : 'hover:border-slate-600'}`}
+                placeholder="thy.name@realm.sanctum"
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-red-400 rune-font glitch-red-text glitch-animate">{errors.email}</p>
+                <p className="mt-2 text-sm glitch-red-text glitch-animate medieval-text">{errors.email}</p>
               )}
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-amber-200 rune-font">
-                Password
+              <label htmlFor="password" className="block text-sm font-medium ui-text mb-3">
+                Sacred Cipher
               </label>
-              <div className="mt-1 relative">
+              <div className="relative">
                 <input
                   id="password"
                   name="password"
@@ -162,12 +162,12 @@ export default function AuthForm() {
                   autoComplete={isSignUp ? 'new-password' : 'current-password'}
                   value={formData.password}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 pr-12 bg-gray-800/70 border border-amber-700/30 rounded-lg text-amber-100 placeholder-amber-300/50 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50 transition-all duration-300 backdrop-blur-sm ${errors.password ? 'border-red-500/70 focus:ring-red-500/50' : 'hover:border-amber-600/50'}`}
-                  placeholder="Enter your password"
+                  className={`input-field pr-12 ${errors.password ? 'border-glitchRed focus:border-glitchRed' : 'hover:border-slate-600'}`}
+                  placeholder="••••••••••••"
                 />
                 <button
                   type="button"
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-amber-400/70 hover:text-amber-300 transition-colors duration-200"
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-500 hover:text-glitchRed transition-colors duration-300"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? (
@@ -178,14 +178,14 @@ export default function AuthForm() {
                 </button>
               </div>
               {errors.password && (
-                <p className="mt-1 text-sm text-red-400 rune-font glitch-red-text glitch-animate">{errors.password}</p>
+                <p className="mt-2 text-sm glitch-red-text glitch-animate medieval-text">{errors.password}</p>
               )}
             </div>
 
             {isSignUp && (
               <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-medium text-amber-200 rune-font">
-                  Confirm Password
+                <label htmlFor="confirmPassword" className="block text-sm font-medium ui-text mb-3">
+                  Confirm Sacred Cipher
                 </label>
                 <input
                   id="confirmPassword"
@@ -194,19 +194,19 @@ export default function AuthForm() {
                   autoComplete="new-password"
                   value={formData.confirmPassword}
                   onChange={handleChange}
-                  className={`mt-1 w-full px-4 py-3 bg-gray-800/70 border border-amber-700/30 rounded-lg text-amber-100 placeholder-amber-300/50 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500/50 transition-all duration-300 backdrop-blur-sm ${errors.confirmPassword ? 'border-red-500/70 focus:ring-red-500/50' : 'hover:border-amber-600/50'}`}
-                  placeholder="Confirm your password"
+                  className={`input-field ${errors.confirmPassword ? 'border-glitchRed focus:border-glitchRed' : 'hover:border-slate-600'}`}
+                  placeholder="••••••••••••"
                 />
                 {errors.confirmPassword && (
-                  <p className="mt-1 text-sm text-red-400 rune-font glitch-red-text glitch-animate">{errors.confirmPassword}</p>
+                  <p className="mt-2 text-sm glitch-red-text glitch-animate medieval-text">{errors.confirmPassword}</p>
                 )}
               </div>
             )}
           </div>
 
           {errors.submit && (
-            <div className="bg-red-900/30 border border-red-500/50 rounded-lg p-4 backdrop-blur-sm">
-              <p className="text-sm text-red-300 rune-font glitch-red-text glitch-animate">{errors.submit}</p>
+            <div className="gothic-frame bg-darkBg-soft p-4">
+              <p className="text-sm glitch-red-text glitch-animate medieval-text">{errors.submit}</p>
             </div>
           )}
 
@@ -214,20 +214,20 @@ export default function AuthForm() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:ring-offset-2 focus:ring-offset-gray-900 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none mystical-glow medieval-font shadow-lg"
+              className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               {loading ? (
                 <div className="flex items-center justify-center">
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                  <span className="rune-font glitch-red-text glitch-animate">{isSignUp ? 'Creating account...' : 'Signing in...'}</span>
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-slate-200 mr-3"></div>
+                  <span className="glitch-red-text glitch-animate">{isSignUp ? 'Forging thy seal...' : 'Entering sanctum...'}</span>
                 </div>
               ) : (
-                isSignUp ? 'Create account' : 'Sign in'
+                <span className="tracking-wide">{isSignUp ? 'Join the Order' : 'Enter Sanctum'}</span>
               )}
             </button>
           </div>
 
-          <div className="text-center">
+          <div className="text-center mt-8">
             <button
               type="button"
               onClick={() => {
@@ -235,11 +235,11 @@ export default function AuthForm() {
                 setErrors({})
                 setFormData({ email: '', password: '', confirmPassword: '' })
               }}
-              className="text-sm text-amber-400 hover:text-amber-300 transition-colors duration-300 underline decoration-amber-400/30 hover:decoration-amber-300/50 rune-font"
+              className="ui-text hover:text-glitchRed transition-colors duration-500 underline decoration-slate-600 hover:decoration-glitchRed"
             >
               {isSignUp
-                ? 'Already have an account? Sign in'
-                : "Don't have an account? Sign up"
+                ? 'Already sworn to the Order? Return'
+                : 'Seek to join our sacred brotherhood?'
               }
             </button>
           </div>

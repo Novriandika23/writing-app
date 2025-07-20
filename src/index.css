@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Uncial+Antiqua&family=Cinzel:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=UnifrakturCook:wght@700&family=Cinzel:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,29 +6,58 @@
 
 @layer base {
   body {
-    @apply font-sans bg-[#0f0f0f] text-[#f4f4f4];
+    @apply font-serif bg-darkBg text-slate-200;
+    background: linear-gradient(135deg, #0b0c10 0%, #1f1f1f 50%, #0b0c10 100%);
+    min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-gothic text-slate-100;
+  }
+
+  /* Gothic medieval styling */
+  .gothic-title {
+    @apply font-gothic text-glitchRed tracking-wider;
+    text-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
+  }
+
+  .medieval-text {
+    @apply font-serif text-slate-300 leading-relaxed;
+  }
+
+  .ui-text {
+    @apply font-sans text-slate-400;
   }
 }
 
 @layer components {
+  /* Medieval Gothic Buttons */
   .btn-primary {
-    @apply bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 transform hover:scale-[1.02];
+    @apply bg-gradient-to-r from-glitchRed-deep to-glitchRed hover:from-red-800 hover:to-red-600 text-white font-semibold py-3 px-6 transition-all duration-300 transform hover:scale-[1.02];
+    border: 2px solid #ff003c;
+    box-shadow: 0 0 15px rgba(255, 0, 60, 0.3);
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
   }
 
   .btn-secondary {
-    @apply bg-gray-700 hover:bg-gray-600 text-gray-200 font-medium py-2 px-4 rounded-lg transition-colors duration-200 border border-gray-600;
+    @apply bg-darkBg-soft hover:bg-slate-800 text-slate-300 font-medium py-3 px-6 transition-all duration-300 border-2 border-slate-600 hover:border-glitchRed;
+    font-family: 'Inter', sans-serif;
   }
 
-  .card {
-    @apply bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg border border-amber-700/30 p-6;
+  /* Medieval Cards */
+  .medieval-card {
+    @apply bg-gradient-to-br from-darkBg to-darkBg-soft backdrop-blur-sm shadow-2xl p-6;
+    border: 2px solid rgba(255, 0, 60, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255, 0, 60, 0.1);
   }
 
+  /* Gothic Input Fields */
   .input-field {
-    @apply w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-md text-[#f4f4f4] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200;
+    @apply w-full px-4 py-3 bg-darkBg-soft border-2 border-slate-700 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-glitchRed transition-all duration-300;
+    font-family: 'Crimson Text', serif;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
   }
 
   /* Dark mode specific styles */
@@ -40,13 +69,14 @@
     box-shadow: 0 0 50px rgba(79, 70, 229, 0.1);
   }
 
-  /* Dark Fantasy Theme */
+  /* Dark Medieval Fantasy Theme */
   .dark-fantasy-bg {
     background:
-      radial-gradient(ellipse at top, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
-      radial-gradient(ellipse at bottom, rgba(75, 0, 130, 0.1) 0%, transparent 50%),
-      linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 25%, #0f0f23 50%, #1a0a0a 75%, #0a0a0a 100%);
+      radial-gradient(ellipse at top, rgba(255, 0, 60, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom, rgba(11, 12, 16, 1) 0%, transparent 50%),
+      linear-gradient(135deg, #0b0c10 0%, #1f1f1f 25%, #0b0c10 50%, #1a1a1a 75%, #0b0c10 100%);
     position: relative;
+    min-height: 100vh;
   }
 
   .dark-fantasy-bg::before {
@@ -57,18 +87,39 @@
     right: 0;
     bottom: 0;
     background-image:
-      radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, rgba(75, 0, 130, 0.1) 0%, transparent 50%);
-    opacity: 0.3;
+      radial-gradient(circle at 25% 25%, rgba(255, 0, 60, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(31, 31, 31, 0.8) 0%, transparent 50%);
+    opacity: 0.7;
     pointer-events: none;
   }
 
-  .parchment-texture {
+  /* Medieval Stone Texture */
+  .stone-texture {
     background-image:
-      radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(101, 67, 33, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, rgba(160, 82, 45, 0.05) 0%, transparent 50%);
+      radial-gradient(circle at 20% 80%, rgba(31, 31, 31, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(11, 12, 16, 0.5) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(255, 0, 60, 0.02) 0%, transparent 50%);
     position: relative;
+  }
+
+  /* Gothic Frame Elements */
+  .gothic-frame {
+    border: 2px solid rgba(255, 0, 60, 0.3);
+    box-shadow:
+      0 0 20px rgba(255, 0, 60, 0.1),
+      inset 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+  }
+
+  .gothic-frame::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent, rgba(255, 0, 60, 0.1), transparent);
+    z-index: -1;
   }
 
   .mystical-glow {
@@ -96,15 +147,15 @@
   }
 
   .floating-book {
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite;
   }
 
   .floating-book:hover {
-    animation: float 2s ease-in-out infinite, glow-pulse 1.5s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
   }
 
   .mystical-mist {
-    animation: mist 8s ease-in-out infinite;
+    animation: mist 12s ease-in-out infinite;
   }
 
   @keyframes float {
@@ -117,29 +168,48 @@
     50% { opacity: 0.6; transform: scale(1.1); }
   }
 
+  /* Medieval Gothic Effects */
+  .mystical-glow {
+    box-shadow:
+      0 0 20px rgba(255, 0, 60, 0.2),
+      0 0 40px rgba(255, 0, 60, 0.1),
+      inset 0 0 20px rgba(0, 0, 0, 0.3);
+    animation: gothic-pulse 6s ease-in-out infinite;
+  }
+
   .magical-pen {
-    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6));
-    animation: glow 2s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 8px rgba(255, 0, 60, 0.5));
+    animation: crimson-glow 4s ease-in-out infinite alternate;
   }
 
-  @keyframes glow {
-    from { filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6)); }
-    to { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.9)); }
+  @keyframes crimson-glow {
+    from { filter: drop-shadow(0 0 8px rgba(255, 0, 60, 0.5)); }
+    to { filter: drop-shadow(0 0 15px rgba(255, 0, 60, 0.8)); }
   }
 
-  @keyframes glow-pulse {
+  @keyframes gothic-pulse {
     0%, 100% {
       box-shadow:
-        0 0 20px rgba(245, 158, 11, 0.4),
-        0 0 40px rgba(245, 158, 11, 0.2),
-        inset 0 0 20px rgba(139, 69, 19, 0.1);
+        0 0 20px rgba(255, 0, 60, 0.2),
+        0 0 40px rgba(255, 0, 60, 0.1),
+        inset 0 0 20px rgba(0, 0, 0, 0.3);
     }
     50% {
       box-shadow:
-        0 0 30px rgba(245, 158, 11, 0.6),
-        0 0 60px rgba(245, 158, 11, 0.3),
-        inset 0 0 30px rgba(139, 69, 19, 0.2);
+        0 0 30px rgba(255, 0, 60, 0.3),
+        0 0 60px rgba(255, 0, 60, 0.15),
+        inset 0 0 30px rgba(0, 0, 0, 0.4);
     }
+  }
+
+  /* Slow Medieval Animations */
+  .fade-in-slow {
+    animation: fadeInSlow 1.5s ease-out;
+  }
+
+  @keyframes fadeInSlow {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   /* 🔥 GLITCH RED TEXT */

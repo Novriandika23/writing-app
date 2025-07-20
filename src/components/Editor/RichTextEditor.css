@@ -1,196 +1,277 @@
-/* Custom styles for the Rich Text Editor */
-.ProseMirror {
+/* Gothic Dark Medieval Editor Styles */
+.gothic-editor-container {
+  border: 2px solid rgba(220, 38, 38, 0.2);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.8));
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(220, 38, 38, 0.1);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.gothic-prose {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.gothic-prose .ProseMirror {
   outline: none;
   background: transparent;
   color: #e2e8f0;
-  font-family: 'Georgia', 'Times New Roman', serif;
-  line-height: 1.7;
+  font-family: 'Crimson Text', 'Georgia', 'Times New Roman', serif;
+  line-height: 1.8;
   transition: all 0.3s ease;
   border-radius: 8px;
-  padding: 1rem;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
-.ProseMirror:focus {
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+.gothic-prose .ProseMirror:focus {
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.2);
 }
 
-.ProseMirror p {
-  margin: 1em 0;
+.gothic-prose .ProseMirror p {
+  margin: 1.2em 0;
   color: #e2e8f0;
+  text-align: justify;
+  text-indent: 1.5em;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
-.ProseMirror h1,
-.ProseMirror h2,
-.ProseMirror h3,
-.ProseMirror h4,
-.ProseMirror h5,
-.ProseMirror h6 {
+.gothic-prose .ProseMirror h1,
+.gothic-prose .ProseMirror h2,
+.gothic-prose .ProseMirror h3,
+.gothic-prose .ProseMirror h4,
+.gothic-prose .ProseMirror h5,
+.gothic-prose .ProseMirror h6 {
   color: #f1f5f9;
-  font-weight: 600;
-  margin: 1.5em 0 0.5em 0;
+  font-weight: 700;
+  margin: 2em 0 1em 0;
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  text-indent: 0;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
-.ProseMirror h1 {
-  font-size: 2em;
-  border-bottom: 2px solid #7c3aed;
-  padding-bottom: 0.3em;
+.gothic-prose .ProseMirror h1 {
+  font-size: 2.2em;
+  border-bottom: 3px solid #dc2626;
+  padding-bottom: 0.5em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #dc2626;
 }
 
-.ProseMirror h2 {
-  font-size: 1.5em;
-  color: #c4b5fd;
+.gothic-prose .ProseMirror h2 {
+  font-size: 1.8em;
+  color: #f87171;
+  text-decoration: underline;
+  text-decoration-color: #dc2626;
 }
 
-.ProseMirror h3 {
-  font-size: 1.25em;
-  color: #ddd6fe;
-}
-
-.ProseMirror strong {
-  color: #c4b5fd;
-  font-weight: 600;
-}
-
-.ProseMirror em {
-  color: #c4b5fd;
+.gothic-prose .ProseMirror h3 {
+  font-size: 1.4em;
+  color: #fca5a5;
   font-style: italic;
 }
 
-.ProseMirror blockquote {
-  border-left: 4px solid #7c3aed;
-  margin: 1.5em 0;
-  padding-left: 1em;
+.gothic-prose .ProseMirror strong {
+  color: #dc2626;
+  font-weight: 700;
+  text-shadow: 0 0 5px rgba(220, 38, 38, 0.3);
+}
+
+.gothic-prose .ProseMirror em {
+  color: #f87171;
+  font-style: italic;
+  font-family: 'Crimson Text', serif;
+}
+
+.gothic-prose .ProseMirror blockquote {
+  border-left: 4px solid #dc2626;
+  margin: 2em 0;
+  padding: 1em 1.5em;
   color: #cbd5e1;
   font-style: italic;
-  background: rgba(124, 58, 237, 0.1);
-  border-radius: 0 4px 4px 0;
+  background: rgba(220, 38, 38, 0.1);
+  border-radius: 0 8px 8px 0;
+  position: relative;
+  text-indent: 0;
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  box-sizing: border-box;
 }
 
-.ProseMirror ul,
-.ProseMirror ol {
-  padding-left: 1.5em;
-  margin: 1em 0;
+.gothic-prose .ProseMirror blockquote::before {
+  content: '"';
+  font-size: 4em;
+  color: #dc2626;
+  position: absolute;
+  left: 0.2em;
+  top: -0.2em;
+  font-family: 'Cinzel', serif;
 }
 
-.ProseMirror li {
-  margin: 0.5em 0;
+.gothic-prose .ProseMirror ul,
+.gothic-prose .ProseMirror ol {
+  padding-left: 2em;
+  margin: 1.5em 0;
+  text-indent: 0;
+}
+
+.gothic-prose .ProseMirror li {
+  margin: 0.8em 0;
   color: #e2e8f0;
+  text-indent: 0;
 }
 
-.ProseMirror ul li::marker {
-  color: #7c3aed;
+.gothic-prose .ProseMirror ul li::marker {
+  color: #dc2626;
+  font-size: 1.2em;
 }
 
-.ProseMirror ol li::marker {
-  color: #7c3aed;
-  font-weight: 600;
+.gothic-prose .ProseMirror ol li::marker {
+  color: #dc2626;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
 }
 
-.ProseMirror code {
-  background: rgba(124, 58, 237, 0.2);
-  color: #c4b5fd;
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
+.gothic-prose .ProseMirror code {
+  background: rgba(220, 38, 38, 0.2);
+  color: #fca5a5;
+  padding: 0.3em 0.6em;
+  border-radius: 4px;
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  border: 1px solid rgba(220, 38, 38, 0.3);
 }
 
-.ProseMirror pre {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid #475569;
-  border-radius: 6px;
-  padding: 1em;
-  margin: 1em 0;
+.gothic-prose .ProseMirror pre {
+  background: rgba(15, 23, 42, 0.9);
+  border: 2px solid rgba(220, 38, 38, 0.3);
+  border-radius: 8px;
+  padding: 1.5em;
+  margin: 2em 0;
   overflow-x: auto;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.ProseMirror pre code {
+.gothic-prose .ProseMirror pre code {
   background: none;
   padding: 0;
   color: #e2e8f0;
+  border: none;
 }
 
-/* Placeholder styling */
-.ProseMirror p.is-editor-empty:first-child::before {
+/* Gothic Placeholder styling */
+.gothic-prose .ProseMirror p.is-editor-empty:first-child::before {
   content: attr(data-placeholder);
   float: left;
   color: #64748b;
   pointer-events: none;
   height: 0;
   font-style: italic;
-  opacity: 0.7;
+  opacity: 0.6;
   transition: opacity 0.3s ease;
+  font-family: 'Crimson Text', serif;
+  text-indent: 1.5em;
 }
 
-.ProseMirror:focus p.is-editor-empty:first-child::before {
-  opacity: 0.5;
+.gothic-prose .ProseMirror:focus p.is-editor-empty:first-child::before {
+  opacity: 0.4;
 }
 
-/* Selection styling */
-.ProseMirror ::selection {
-  background: rgba(124, 58, 237, 0.3);
+/* Gothic Selection styling */
+.gothic-prose .ProseMirror ::selection {
+  background: rgba(220, 38, 38, 0.3);
+  color: #ffffff;
 }
 
 /* Focus styling */
-.ProseMirror:focus {
+.gothic-prose .ProseMirror:focus {
   outline: none;
 }
 
-/* Custom scrollbar for the editor */
-.ProseMirror::-webkit-scrollbar {
-  width: 8px;
+/* Gothic scrollbar for the editor */
+.gothic-prose .ProseMirror::-webkit-scrollbar {
+  width: 10px;
 }
 
-.ProseMirror::-webkit-scrollbar-track {
-  background: rgba(15, 23, 42, 0.3);
-  border-radius: 4px;
+.gothic-prose .ProseMirror::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 6px;
+  border: 1px solid rgba(220, 38, 38, 0.2);
 }
 
-.ProseMirror::-webkit-scrollbar-thumb {
-  background: rgba(124, 58, 237, 0.5);
-  border-radius: 4px;
+.gothic-prose .ProseMirror::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(220, 38, 38, 0.6), rgba(185, 28, 28, 0.8));
+  border-radius: 6px;
+  border: 1px solid rgba(220, 38, 38, 0.3);
 }
 
-.ProseMirror::-webkit-scrollbar-thumb:hover {
-  background: rgba(124, 58, 237, 0.7);
+.gothic-prose .ProseMirror::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(220, 38, 38, 0.8), rgba(185, 28, 28, 1));
 }
 
-/* Toolbar styling */
-.editor-toolbar {
-  background: linear-gradient(135deg, rgba(30, 41, 59, 0.4), rgba(51, 65, 85, 0.4));
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(124, 58, 237, 0.2);
+/* Gothic Toolbar styling */
+.gothic-toolbar {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.9));
+  backdrop-filter: blur(15px);
+  border-bottom: 2px solid rgba(220, 38, 38, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Toolbar button animations */
-.editor-toolbar button {
+/* Gothic Toolbar button animations */
+.gothic-toolbar button {
   position: relative;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 8px;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.editor-toolbar button::before {
+.gothic-toolbar button::before {
   content: '';
   position: absolute;
   top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(220, 38, 38, 0.3), transparent);
   transition: left 0.6s ease;
 }
 
-.editor-toolbar button:hover::before {
+.gothic-toolbar button:hover::before {
   left: 100%;
 }
 
-.editor-toolbar button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+.gothic-toolbar button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(220, 38, 38, 0.3);
 }
 
 /* Active button styling */
-.editor-toolbar button.active {
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(147, 51, 234, 0.3));
-  box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+.gothic-toolbar button.active {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.3), rgba(185, 28, 28, 0.4));
+  box-shadow: 0 0 15px rgba(220, 38, 38, 0.5);
+  border-color: rgba(220, 38, 38, 0.5);
+}
+
+/* Gothic select styling */
+.gothic-toolbar select {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.9));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.gothic-toolbar select:focus {
+  box-shadow: 0 0 15px rgba(220, 38, 38, 0.4);
 }

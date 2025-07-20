@@ -1,9 +1,9 @@
-import { useState } from 'react'
+import { useState, useCallback, memo } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { 
-  BookOpenIcon, 
-  UserGroupIcon, 
-  MapIcon, 
+import {
+  BookOpenIcon,
+  UserGroupIcon,
+  MapIcon,
   ChartBarIcon,
   SparklesIcon,
   Cog6ToothIcon,
@@ -20,75 +20,95 @@ const navigation = [
   { name: 'Arcane', href: '/settings', icon: Cog6ToothIcon, runicName: 'Runes' },
 ]
 
-export default function Sidebar() {
+function Sidebar() {
   const [collapsed, setCollapsed] = useState(false)
   const location = useLocation()
 
+  const toggleCollapsed = useCallback(() => {
+    setCollapsed(prev => !prev)
+  }, [])
+
   return (
-    <div className={`bg-gradient-to-b from-gray-900 to-gray-800 border-r border-amber-700/30 transition-all duration-300 ${
+    <div className={`bg-gradient-to-b from-darkBg to-darkBg-soft border-r border-glitchRed/20 transition-all duration-300 stone-texture ${
       collapsed ? 'w-16' : 'w-64'
     }`}>
       <div className="flex flex-col h-full">
-        {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-amber-700/30">
+        {/* Gothic Header */}
+        <div className={`flex items-center p-4 border-b border-glitchRed/20 ${
+          collapsed ? 'justify-center' : 'justify-between'
+        }`}>
           {!collapsed && (
-            <h1 className="text-xl font-bold text-amber-100 medieval-font glitch-red-text glitch-animate">
+            <h1 className="text-xl font-bold gothic-title tracking-wider">
               Mystical Quill
             </h1>
           )}
           <button
-            onClick={() => setCollapsed(!collapsed)}
-            className="p-2 rounded-md hover:bg-amber-900/30 transition-colors border border-amber-700/50"
+            onClick={toggleCollapsed}
+            className="p-2 hover:bg-glitchRed/10 rounded-lg transition-all duration-300 border border-transparent hover:border-glitchRed/30"
           >
             {collapsed ? (
-              <ChevronRightIcon className="w-5 h-5 text-amber-300" />
+              <ChevronRightIcon className="w-4 h-4 text-slate-400 hover:text-glitchRed transition-colors duration-300" />
             ) : (
-              <ChevronLeftIcon className="w-5 h-5 text-amber-300" />
+              <ChevronLeftIcon className="w-4 h-4 text-slate-400 hover:text-glitchRed transition-colors duration-300" />
             )}
           </button>
         </div>
 
-        {/* Navigation */}
-        <nav className="flex-1 p-4 space-y-3">
+        {/* Gothic Navigation */}
+        <nav className={`flex-1 p-4 space-y-2 ${collapsed ? 'px-2' : ''}`}>
           {navigation.map((item) => {
             const isActive = location.pathname.startsWith(item.href)
             return (
               <Link
                 key={item.name}
                 to={item.href}
-                className={`group flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`group flex items-center rounded-lg transition-all duration-300 ${
+                  collapsed
+                    ? 'justify-center p-3 mx-auto w-12 h-12'
+                    : 'px-4 py-3'
+                } ${
                   isActive
-                    ? 'bg-gradient-to-r from-amber-900/50 to-orange-900/50 text-amber-100 border border-amber-700/50 mystical-glow'
-                    : 'text-amber-200/70 hover:bg-amber-900/20 hover:text-amber-100 border border-transparent hover:border-amber-700/30'
+                    ? 'bg-gradient-to-r from-glitchRed/20 to-glitchRed/10 text-slate-100 border border-glitchRed/40 shadow-lg'
+                    : 'text-slate-300 hover:bg-glitchRed/5 hover:text-slate-100 border border-transparent hover:border-glitchRed/20'
                 }`}
                 title={collapsed ? item.name : undefined}
               >
-                <item.icon className={`flex-shrink-0 w-5 h-5 transition-colors ${
-                  isActive ? 'text-amber-300' : 'text-amber-400/70 group-hover:text-amber-300'
+                <item.icon className={`flex-shrink-0 transition-colors duration-300 ${
+                  collapsed ? 'w-5 h-5' : 'w-5 h-5'
+                } ${
+                  isActive ? 'text-glitchRed' : 'text-slate-400 group-hover:text-glitchRed'
                 }`} />
                 {!collapsed && (
-                  <span className="ml-3 medieval-font">{item.name}</span>
-                )}
-                {!collapsed && (
-                  <span className="ml-auto text-xs rune-font text-amber-400/50">{item.runicName}</span>
+                  <div className="ml-3 flex-1 flex items-center justify-between">
+                    <span className="font-serif text-sm font-medium tracking-wide">{item.name}</span>
+                    <span className="text-xs ui-text text-slate-500 font-sans">{item.runicName}</span>
+                  </div>
                 )}
               </Link>
             )
           })}
         </nav>
 
-        {/* User section */}
-        <div className="p-4 border-t border-amber-700/30">
-          {!collapsed && (
+        {/* Gothic User Section */}
+        <div className={`p-4 border-t border-glitchRed/20 ${collapsed ? 'px-2' : ''}`}>
+          {!collapsed ? (
             <div className="flex items-center">
-              <div className="w-10 h-10 bg-gradient-to-br from-amber-600 to-orange-600 rounded-full flex items-center justify-center border border-amber-700/50 mystical-glow">
-                <svg className="w-5 h-5 text-amber-100" fill="currentColor" viewBox="0 0 24 24">
+              <div className="w-10 h-10 bg-gradient-to-br from-glitchRed-deep to-glitchRed rounded-full flex items-center justify-center border border-glitchRed/40 shadow-lg">
+                <svg className="w-5 h-5 text-slate-100" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
                 </svg>
               </div>
               <div className="ml-3">
-                <p className="text-sm font-medium text-amber-100 medieval-font">Scribe</p>
-                <p className="text-xs text-amber-300/70 rune-font">Tale Weaver</p>
+                <p className="text-sm font-medium text-slate-100 font-serif">Chronicler</p>
+                <p className="text-xs text-slate-400 ui-text">Order of Scribes</p>
+              </div>
+            </div>
+          ) : (
+            <div className="flex justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-glitchRed-deep to-glitchRed rounded-full flex items-center justify-center border border-glitchRed/40 shadow-lg">
+                <svg className="w-5 h-5 text-slate-100" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
+                </svg>
               </div>
             </div>
           )}
@@ -97,3 +117,5 @@ export default function Sidebar() {
     </div>
   )
 }
+
+export default memo(Sidebar)

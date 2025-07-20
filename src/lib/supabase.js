@@ -8,22 +8,18 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 // Auth helpers
 export const auth = {
   signUp: async (email, password) => {
-    console.log('📝 Attempting sign up with:', { email, passwordLength: password?.length })
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
     })
-    console.log('📝 Sign up result:', { data: data?.user ? 'User created' : 'No user', error })
     return { data, error }
   },
 
   signIn: async (email, password) => {
-    console.log('🔐 Attempting sign in with:', { email, passwordLength: password?.length })
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     })
-    console.log('🔐 Sign in result:', { data: data?.user ? 'User found' : 'No user', error })
     return { data, error }
   },
 

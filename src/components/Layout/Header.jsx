@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, memo, useCallback } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { 
@@ -9,41 +9,42 @@ import {
 } from '@heroicons/react/24/outline'
 import useAuthStore from '../../store/authStore'
 
-export default function Header() {
-  const { user, signOut } = useAuthStore()
+function Header() {
+  const user = useAuthStore(state => state.user)
+  const signOut = useAuthStore(state => state.signOut)
   const [notifications] = useState([])
 
-  const handleSignOut = async () => {
+  const handleSignOut = useCallback(async () => {
     await signOut()
-  }
+  }, [signOut])
 
   return (
-    <header className="bg-gradient-to-r from-gray-900 to-gray-800 border-b border-amber-700/30 px-6 py-4">
+    <header className="bg-gradient-to-r from-darkBg to-darkBg-soft border-b-2 border-glitchRed/20 px-8 py-6 stone-texture">
       <div className="flex items-center justify-between">
-        {/* Search and breadcrumb area */}
+        {/* Gothic Search Area */}
         <div className="flex-1">
           <div className="max-w-lg">
             <input
               type="search"
               placeholder="Search stories, characters, or notes..."
-              className="w-full px-4 py-2 bg-gray-800/50 border border-amber-700/30 rounded-lg text-amber-100 placeholder-amber-300/50 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 rune-font"
+              className="input-field text-base"
             />
           </div>
         </div>
 
-        {/* Right side - notifications and user menu */}
-        <div className="flex items-center space-x-4">
-          {/* Notifications */}
-          <button className="relative p-2 text-amber-300/70 hover:text-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-lg transition-colors">
+        {/* Gothic Right Side - notifications and user menu */}
+        <div className="flex items-center space-x-6">
+          {/* Mystical Notifications */}
+          <button className="relative p-3 text-slate-400 hover:text-glitchRed focus:outline-none focus:ring-2 focus:ring-glitchRed focus:ring-offset-2 focus:ring-offset-darkBg rounded-lg transition-all duration-300 border border-transparent hover:border-glitchRed/30 hover:bg-glitchRed/5">
             <BellIcon className="w-6 h-6" />
             {notifications.length > 0 && (
-              <span className="absolute top-0 right-0 block w-2 h-2 bg-red-500 rounded-full mystical-glow"></span>
+              <span className="absolute top-1 right-1 block w-3 h-3 bg-glitchRed rounded-full mystical-glow"></span>
             )}
           </button>
 
-          {/* User menu */}
+          {/* Gothic User Menu */}
           <Menu as="div" className="relative">
-            <Menu.Button className="flex items-center p-2 text-amber-300/70 hover:text-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-lg transition-colors">
+            <Menu.Button className="flex items-center p-3 text-slate-400 hover:text-glitchRed focus:outline-none focus:ring-2 focus:ring-glitchRed focus:ring-offset-2 focus:ring-offset-darkBg rounded-lg transition-all duration-300 border border-transparent hover:border-glitchRed/30 hover:bg-glitchRed/5">
               <UserCircleIcon className="w-8 h-8" />
             </Menu.Button>
 
@@ -56,13 +57,13 @@ export default function Header() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right bg-gray-800 rounded-md shadow-xl ring-1 ring-amber-700/30 focus:outline-none border border-amber-700/20">
-                <div className="py-1">
-                  <div className="px-4 py-2 border-b border-amber-700/30">
-                    <p className="text-sm font-medium text-amber-100 medieval-font">
-                      {user?.email || 'Scribe'}
+              <Menu.Items className="absolute right-0 z-10 mt-3 w-72 origin-top-right bg-gradient-to-br from-darkBg to-darkBg-soft rounded-lg shadow-2xl ring-2 ring-glitchRed/30 focus:outline-none border border-glitchRed/20 gothic-frame">
+                <div className="py-2">
+                  <div className="px-6 py-4 border-b-2 border-glitchRed/20">
+                    <p className="text-base font-medium text-slate-100 medieval-font truncate max-w-full">
+                      {user?.email || 'Anonymous Scribe'}
                     </p>
-                    <p className="text-xs text-amber-300/70 rune-font">Tale Weaver</p>
+                    <p className="text-sm text-slate-400 rune-font">Tale Weaver</p>
                   </div>
 
                   <Menu.Item>
@@ -70,10 +71,12 @@ export default function Header() {
                       <a
                         href="/settings"
                         className={`${
-                          active ? 'bg-amber-900/30' : ''
-                        } flex items-center px-4 py-2 text-sm text-amber-200 hover:text-amber-100 transition-colors`}
+                          active ? 'bg-glitchRed/10 text-slate-100' : 'text-slate-300'
+                        } flex items-center px-6 py-3 text-sm hover:text-slate-100 hover:bg-glitchRed/5 transition-all duration-300 border-l-2 ${
+                          active ? 'border-glitchRed' : 'border-transparent'
+                        }`}
                       >
-                        <Cog6ToothIcon className="w-4 h-4 mr-3 text-amber-400/70" />
+                        <Cog6ToothIcon className="w-5 h-5 mr-4 text-slate-400" />
                         <span className="medieval-font">Arcane Settings</span>
                       </a>
                     )}
@@ -84,10 +87,12 @@ export default function Header() {
                       <button
                         onClick={handleSignOut}
                         className={`${
-                          active ? 'bg-amber-900/30' : ''
-                        } flex items-center w-full px-4 py-2 text-sm text-amber-200 hover:text-amber-100 transition-colors`}
+                          active ? 'bg-glitchRed/10 text-slate-100' : 'text-slate-300'
+                        } flex items-center w-full px-6 py-3 text-sm hover:text-slate-100 hover:bg-glitchRed/5 transition-all duration-300 border-l-2 ${
+                          active ? 'border-glitchRed' : 'border-transparent'
+                        }`}
                       >
-                        <ArrowRightOnRectangleIcon className="w-4 h-4 mr-3 text-amber-400/70" />
+                        <ArrowRightOnRectangleIcon className="w-5 h-5 mr-4 text-slate-400" />
                         <span className="medieval-font">Depart Realm</span>
                       </button>
                     )}
@@ -101,3 +106,5 @@ export default function Header() {
     </header>
   )
 }
+
+export default memo(Header)

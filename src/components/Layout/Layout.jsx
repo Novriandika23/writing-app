@@ -1,11 +1,12 @@
-import { useEffect } from 'react'
+import { useEffect, memo } from 'react'
 import { Outlet } from 'react-router-dom'
 import Sidebar from './Sidebar'
 import Header from './Header'
 import useAuthStore from '../../store/authStore'
 
-export default function Layout() {
-  const { initialize, loading } = useAuthStore()
+function Layout() {
+  const initialize = useAuthStore(state => state.initialize)
+  const loading = useAuthStore(state => state.loading)
 
   useEffect(() => {
     initialize()
@@ -34,3 +35,5 @@ export default function Layout() {
     </div>
   )
 }
+
+export default memo(Layout)

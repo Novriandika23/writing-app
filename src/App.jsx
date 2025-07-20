@@ -1,27 +1,30 @@
-import { useEffect } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/Layout/Layout'
 import AuthForm from './components/Auth/AuthForm'
-import StoriesPage from './components/Stories/StoriesPage'
-import StoryEditor from './components/Stories/StoryEditor'
-import AIAssistant from './components/AI/AIAssistant'
+import LoadingSpinner from './components/Common/LoadingSpinner'
 import useAuthStore from './store/authStore'
 import usePageTitle from './hooks/usePageTitle'
+
+// Lazy load heavy components
+const StoriesPage = lazy(() => import('./components/Stories/StoriesPage'))
+const StoryEditor = lazy(() => import('./components/Stories/StoryEditor'))
+const AIAssistant = lazy(() => import('./components/AI/AIAssistant'))
 
 // Placeholder components for other pages
 const CharactersPage = () => {
   usePageTitle('Characters')
   return (
-    <div className="min-h-screen dark-fantasy-bg parchment-texture">
-      <div className="p-6">
-        <div className="text-center py-16">
-          <div className="mb-8">
-            <svg className="w-24 h-24 text-amber-300 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+    <div className="min-h-screen dark-fantasy-bg stone-texture fade-in-slow">
+      <div className="p-8">
+        <div className="text-center py-24">
+          <div className="mb-12">
+            <svg className="w-32 h-32 text-glitchRed mx-auto mb-8 magical-pen" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
             </svg>
           </div>
-          <h1 className="text-4xl font-bold text-amber-100 medieval-font mb-4 glitch-red-text glitch-animate">Souls of the Realm</h1>
-          <p className="text-amber-200/70 rune-font text-lg">Character weaving shall be unveiled soon...</p>
+          <h1 className="text-5xl font-bold gothic-title mb-8">Souls of the Realm</h1>
+          <p className="medieval-text text-xl">The art of soul-weaving shall be unveiled when the stars align...</p>
         </div>
       </div>
     </div>
@@ -31,16 +34,16 @@ const CharactersPage = () => {
 const PlotPage = () => {
   usePageTitle('Plot')
   return (
-    <div className="min-h-screen dark-fantasy-bg parchment-texture">
-      <div className="p-6">
-        <div className="text-center py-16">
-          <div className="mb-8">
-            <svg className="w-24 h-24 text-amber-300 mx-auto mb-6" fill="currentColor" viewBox="0 0 24 24">
+    <div className="min-h-screen dark-fantasy-bg stone-texture fade-in-slow">
+      <div className="p-8">
+        <div className="text-center py-24">
+          <div className="mb-12">
+            <svg className="w-32 h-32 text-glitchRed mx-auto mb-8 magical-pen" fill="currentColor" viewBox="0 0 24 24">
               <path d="M2.5,19H21.5V21H2.5V19M22.07,9.64C21.86,8.84 21.03,8.36 20.23,8.58L14.92,10L8.09,8.07L1.93,9.64C1.13,9.86 0.65,10.69 0.87,11.49L0.96,11.82C1.18,12.62 2.01,13.1 2.81,12.88L8.09,11.5L15.91,13.93L22.07,12.36C22.87,12.14 23.35,11.31 23.13,10.51L23.04,10.18C22.82,9.38 21.99,8.9 21.19,9.12L22.07,9.64M7.5,5.5C7.5,4.67 8.17,4 9,4H15C15.83,4 16.5,4.67 16.5,5.5V7H7.5V5.5Z" />
             </svg>
           </div>
-          <h1 className="text-4xl font-bold text-amber-100 medieval-font mb-4 glitch-red-text glitch-animate">Fate Weaver</h1>
-          <p className="text-amber-200/70 rune-font text-lg">Destiny's threads await thy guidance...</p>
+          <h1 className="text-5xl font-bold gothic-title mb-8">Fate Weaver</h1>
+          <p className="medieval-text text-xl">The threads of destiny await thy masterful weaving...</p>
         </div>
       </div>
     </div>
@@ -86,10 +89,10 @@ function ProtectedRoute({ children }) {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center dark-fantasy-bg">
+      <div className="min-h-screen flex items-center justify-center dark-fantasy-bg stone-texture fade-in-slow">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500 mx-auto"></div>
-          <p className="mt-4 text-amber-200 rune-font glitch-red-text glitch-animate">Awakening the mystical realm...</p>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-glitchRed mx-auto mystical-glow"></div>
+          <p className="mt-8 medieval-text text-xl glitch-red-text glitch-animate">Awakening the sacred sanctum...</p>
         </div>
       </div>
     )
@@ -99,7 +102,7 @@ function ProtectedRoute({ children }) {
 }
 
 function App() {
-  const { initialize } = useAuthStore()
+  const initialize = useAuthStore(state => state.initialize)
 
   useEffect(() => {
     initialize()
@@ -115,12 +118,24 @@ function App() {
           </ProtectedRoute>
         }>
           <Route index element={<Navigate to="/stories" replace />} />
-          <Route path="stories" element={<StoriesPage />} />
-          <Route path="stories/:id" element={<StoryEditor />} />
+          <Route path="stories" element={
+            <Suspense fallback={<LoadingSpinner className="min-h-screen" />}>
+              <StoriesPage />
+            </Suspense>
+          } />
+          <Route path="stories/:id" element={
+            <Suspense fallback={<LoadingSpinner className="min-h-screen" />}>
+              <StoryEditor />
+            </Suspense>
+          } />
           <Route path="characters" element={<CharactersPage />} />
           <Route path="plot" element={<PlotPage />} />
           <Route path="world" element={<WorldPage />} />
-          <Route path="ai" element={<AIPage />} />
+          <Route path="ai" element={
+            <Suspense fallback={<LoadingSpinner className="min-h-screen" />}>
+              <AIPage />
+            </Suspense>
+          } />
           <Route path="settings" element={<SettingsPage />} />
         </Route>
       </Routes>
