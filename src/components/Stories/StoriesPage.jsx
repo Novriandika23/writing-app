@@ -85,26 +85,52 @@ export default function StoriesPage() {
     <div className="min-h-screen dark-fantasy-bg stone-texture fade-in-slow">
       <div className="p-4 lg:p-8">
         {/* Gothic Header */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-8 lg:mb-12 space-y-4 lg:space-y-0">
-          <div>
-            <h1 className="text-3xl lg:text-5xl font-bold gothic-title tracking-wider mb-2 lg:mb-4">
-              Chronicle Sanctum
-            </h1>
-            <p className="medieval-text text-lg lg:text-xl">
-              Sacred repository of thy written realms
-            </p>
-          </div>
-          <button
-            onClick={() => setShowCreateModal(true)}
-            className="btn-primary group w-full lg:w-auto flex-shrink-0"
-          >
-            <div className="flex items-center justify-center lg:justify-start">
-              <svg className="w-5 h-5 lg:w-6 lg:h-6 mr-2 lg:mr-3 magical-pen" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M3,17.25V21H6.75L17.81,9.94L14.06,6.19L3,17.25M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04Z" />
-              </svg>
-              <span className="text-white font-semibold tracking-wide text-sm lg:text-base">Forge New Chronicle</span>
+        <div className="mb-8 lg:mb-12">
+          {/* Desktop Layout - Side by side */}
+          <div className="hidden lg:flex lg:items-center justify-between">
+            <div>
+              <h1 className="text-5xl font-bold gothic-title tracking-wider mb-4">
+                Chronicle Sanctum
+              </h1>
+              <p className="medieval-text text-xl">
+                Sacred repository of thy written realms
+              </p>
             </div>
-          </button>
+            <button
+              onClick={() => setShowCreateModal(true)}
+              className="btn-primary group flex-shrink-0"
+            >
+              <div className="flex items-center">
+                <svg className="w-6 h-6 mr-3 magical-pen" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M3,17.25V21H6.75L17.81,9.94L14.06,6.19L3,17.25M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04Z" />
+                </svg>
+                <span className="text-white font-semibold tracking-wide">Forge New Chronicle</span>
+              </div>
+            </button>
+          </div>
+
+          {/* Mobile Layout - Stacked */}
+          <div className="lg:hidden">
+            <div className="text-center mb-6">
+              <h1 className="text-3xl font-bold gothic-title tracking-wider mb-3">
+                Chronicle Sanctum
+              </h1>
+              <p className="medieval-text text-lg mb-4">
+                Sacred repository of thy written realms
+              </p>
+              <button
+                onClick={() => setShowCreateModal(true)}
+                className="btn-primary group w-full"
+              >
+                <div className="flex items-center justify-center">
+                  <svg className="w-5 h-5 mr-2 magical-pen" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M3,17.25V21H6.75L17.81,9.94L14.06,6.19L3,17.25M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04Z" />
+                  </svg>
+                  <span className="text-white font-semibold tracking-wide text-sm">Forge New Chronicle</span>
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* Chronicles Grid */}
@@ -148,13 +174,13 @@ export default function StoriesPage() {
             </p>
             <button
               onClick={() => setShowCreateModal(true)}
-              className="btn-primary group"
+              className="btn-primary group w-full lg:w-auto"
             >
-              <div className="flex items-center">
-                <svg className="w-6 h-6 mr-3 magical-pen" fill="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-center justify-center lg:justify-start">
+                <svg className="w-5 h-5 lg:w-6 lg:h-6 mr-2 lg:mr-3 magical-pen" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M3,17.25V21H6.75L17.81,9.94L14.06,6.19L3,17.25M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04Z" />
                 </svg>
-                <span className="text-lg text-white font-semibold tracking-wide">Inscribe First Chronicle</span>
+                <span className="text-sm lg:text-lg text-white font-semibold tracking-wide">Inscribe First Chronicle</span>
               </div>
             </button>
           </div>
