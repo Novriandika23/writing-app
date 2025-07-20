@@ -67,12 +67,12 @@ export default function StoriesPage() {
   if (loading) {
     return (
       <div className="min-h-screen dark-fantasy-bg stone-texture fade-in-slow">
-        <div className="p-8">
-          <div className="animate-pulse space-y-8">
-            <div className="h-16 bg-glitchRed/10 rounded-lg w-1/3 border-2 border-glitchRed/20"></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="p-4 lg:p-8">
+          <div className="animate-pulse space-y-6 lg:space-y-8">
+            <div className="h-12 lg:h-16 bg-glitchRed/10 rounded-lg w-2/3 lg:w-1/3 border-2 border-glitchRed/20 mx-auto lg:mx-0"></div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-8">
               {[...Array(6)].map((_, i) => (
-                <div key={i} className="h-80 bg-darkBg-soft rounded-xl border-2 border-glitchRed/20 mystical-glow"></div>
+                <div key={i} className="h-64 lg:h-80 bg-darkBg-soft rounded-xl border-2 border-glitchRed/20 mystical-glow"></div>
               ))}
             </div>
           </div>

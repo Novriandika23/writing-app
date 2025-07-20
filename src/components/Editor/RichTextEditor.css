@@ -275,3 +275,77 @@
 .gothic-toolbar select:focus {
   box-shadow: 0 0 15px rgba(220, 38, 38, 0.4);
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .gothic-prose .ProseMirror {
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 1rem;
+  }
+
+  .gothic-prose .ProseMirror h1 {
+    font-size: 1.8em;
+    letter-spacing: 1px;
+  }
+
+  .gothic-prose .ProseMirror h2 {
+    font-size: 1.5em;
+  }
+
+  .gothic-prose .ProseMirror h3 {
+    font-size: 1.2em;
+  }
+
+  .gothic-prose .ProseMirror p {
+    margin: 1em 0;
+    text-indent: 1em;
+  }
+
+  .gothic-prose .ProseMirror blockquote {
+    margin: 1.5em 0;
+    padding: 0.8em 1em;
+  }
+
+  .gothic-prose .ProseMirror blockquote::before {
+    font-size: 3em;
+    left: 0.1em;
+    top: -0.1em;
+  }
+
+  .gothic-prose .ProseMirror ul,
+  .gothic-prose .ProseMirror ol {
+    padding-left: 1.5em;
+    margin: 1em 0;
+  }
+
+  .gothic-prose .ProseMirror li {
+    margin: 0.5em 0;
+  }
+
+  .gothic-toolbar {
+    padding: 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .gothic-toolbar button {
+    min-width: 36px;
+    min-height: 36px;
+  }
+
+  .gothic-toolbar select {
+    min-width: 80px;
+    font-size: 12px;
+  }
+
+  /* Hide scrollbar on mobile for toolbar */
+  .gothic-toolbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gothic-toolbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

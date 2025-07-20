@@ -107,31 +107,31 @@ export default function StoryEditor() {
   return (
     <div className="min-h-screen dark-fantasy-bg stone-texture flex flex-col">
       {/* Gothic Header */}
-      <div className="border-b-2 border-glitchRed/20 bg-gradient-to-r from-darkBg to-darkBg-soft backdrop-blur-sm px-6 py-6">
+      <div className="border-b-2 border-glitchRed/20 bg-gradient-to-r from-darkBg to-darkBg-soft backdrop-blur-sm px-4 lg:px-6 py-4 lg:py-6">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 lg:space-x-4 min-w-0 flex-1">
             <button
               onClick={() => navigate('/stories')}
-              className="p-3 hover:bg-glitchRed/10 rounded-lg transition-all duration-300 group border border-transparent hover:border-glitchRed/30"
+              className="p-2 lg:p-3 hover:bg-glitchRed/10 rounded-lg transition-all duration-300 group border border-transparent hover:border-glitchRed/30 flex-shrink-0"
             >
-              <ArrowLeftIcon className="w-5 h-5 text-slate-400 group-hover:text-glitchRed" />
+              <ArrowLeftIcon className="w-4 h-4 lg:w-5 lg:h-5 text-slate-400 group-hover:text-glitchRed" />
             </button>
             <div className="min-w-0 flex-1">
-              <h1 className="text-2xl font-semibold text-slate-100 medieval-font truncate">
+              <h1 className="text-lg lg:text-2xl font-semibold text-slate-100 medieval-font truncate">
                 {story.title}
               </h1>
-              <div className="flex items-center space-x-6 text-sm text-slate-400 mt-2">
+              <div className="flex items-center space-x-3 lg:space-x-6 text-xs lg:text-sm text-slate-400 mt-1 lg:mt-2">
                 <div className="flex items-center">
-                  <DocumentTextIcon className="w-4 h-4 mr-2 text-slate-500" />
+                  <DocumentTextIcon className="w-3 h-3 lg:w-4 lg:h-4 mr-1 lg:mr-2 text-slate-500" />
                   <span className="ui-text">{story.word_count || 0} words</span>
                 </div>
                 <div className="hidden sm:flex items-center">
-                  <ClockIcon className="w-4 h-4 mr-2 text-slate-500" />
+                  <ClockIcon className="w-3 h-3 lg:w-4 lg:h-4 mr-1 lg:mr-2 text-slate-500" />
                   <span className="ui-text">Last saved: {formatLastSaved()}</span>
                 </div>
                 {saving && (
                   <div className="flex items-center text-glitchRed">
-                    <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-glitchRed mr-2"></div>
+                    <div className="animate-spin rounded-full h-2 w-2 lg:h-3 lg:w-3 border-b-2 border-glitchRed mr-1 lg:mr-2"></div>
                     <span className="hidden sm:inline ui-text">Saving...</span>
                   </div>
                 )}
@@ -139,23 +139,23 @@ export default function StoryEditor() {
             </div>
           </div>
 
-          <div className="flex items-center space-x-2">
-            <button className="p-3 hover:bg-glitchRed/10 rounded-lg transition-all duration-300 group border border-transparent hover:border-glitchRed/30">
-              <BookmarkIcon className="w-5 h-5 text-slate-400 group-hover:text-glitchRed" />
+          <div className="flex items-center space-x-1 lg:space-x-2 flex-shrink-0">
+            <button className="p-2 lg:p-3 hover:bg-glitchRed/10 rounded-lg transition-all duration-300 group border border-transparent hover:border-glitchRed/30">
+              <BookmarkIcon className="w-4 h-4 lg:w-5 lg:h-5 text-slate-400 group-hover:text-glitchRed" />
             </button>
           </div>
         </div>
       </div>
 
       {/* Gothic Editor Container */}
-      <div className="flex-1 p-8">
+      <div className="flex-1 p-4 lg:p-8">
         <div className="max-w-5xl mx-auto">
-          <div className="medieval-card gothic-frame p-8">
+          <div className="medieval-card gothic-frame p-4 lg:p-8">
             <RichTextEditor
               content={story.content || ''}
               onChange={handleContentChange}
               placeholder="Begin thy chronicle... Let the words flow like ancient magic across these sacred pages."
-              className="min-h-[600px]"
+              className="min-h-[400px] lg:min-h-[600px]"
             />
           </div>
         </div>

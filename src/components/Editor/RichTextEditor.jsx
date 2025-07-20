@@ -19,75 +19,75 @@ const MenuBar = ({ editor }) => {
   }
 
   return (
-    <div className="gothic-toolbar border-b-2 border-glitchRed/20 p-4 flex items-center space-x-2 bg-gradient-to-r from-darkBg to-darkBg-soft">
+    <div className="gothic-toolbar border-b-2 border-glitchRed/20 p-2 lg:p-4 flex items-center space-x-1 lg:space-x-2 bg-gradient-to-r from-darkBg to-darkBg-soft overflow-x-auto">
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
-        className={`p-3 rounded-lg hover:bg-glitchRed/10 transition-all duration-300 border ${
+        className={`p-2 lg:p-3 rounded-lg hover:bg-glitchRed/10 transition-all duration-300 border flex-shrink-0 ${
           editor.isActive('bold')
             ? 'active bg-glitchRed/20 text-glitchRed border-glitchRed/50'
             : 'text-slate-400 border-transparent hover:border-glitchRed/30'
         }`}
       >
-        <BoldIcon className="w-4 h-4" />
+        <BoldIcon className="w-3 h-3 lg:w-4 lg:h-4" />
       </button>
       <button
         onClick={() => editor.chain().focus().toggleItalic().run()}
         disabled={!editor.can().chain().focus().toggleItalic().run()}
-        className={`p-3 rounded-lg hover:bg-glitchRed/10 transition-all duration-300 border ${
+        className={`p-2 lg:p-3 rounded-lg hover:bg-glitchRed/10 transition-all duration-300 border flex-shrink-0 ${
           editor.isActive('italic')
             ? 'active bg-glitchRed/20 text-glitchRed border-glitchRed/50'
             : 'text-slate-400 border-transparent hover:border-glitchRed/30'
         }`}
       >
-        <ItalicIcon className="w-4 h-4" />
+        <ItalicIcon className="w-3 h-3 lg:w-4 lg:h-4" />
       </button>
       <button
         onClick={() => editor.chain().focus().toggleStrike().run()}
         disabled={!editor.can().chain().focus().toggleStrike().run()}
-        className={`p-3 rounded-lg hover:bg-glitchRed/10 transition-all duration-300 border ${
+        className={`p-2 lg:p-3 rounded-lg hover:bg-glitchRed/10 transition-all duration-300 border flex-shrink-0 ${
           editor.isActive('strike')
             ? 'active bg-glitchRed/20 text-glitchRed border-glitchRed/50'
             : 'text-slate-400 border-transparent hover:border-glitchRed/30'
         }`}
       >
-        <UnderlineIcon className="w-4 h-4" />
+        <UnderlineIcon className="w-3 h-3 lg:w-4 lg:h-4" />
       </button>
 
-      <div className="w-px h-6 bg-glitchRed/30 mx-3"></div>
+      <div className="w-px h-4 lg:h-6 bg-glitchRed/30 mx-1 lg:mx-3 flex-shrink-0"></div>
 
       <button
         onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={`p-3 rounded-lg hover:bg-glitchRed/10 transition-all duration-300 border ${
+        className={`p-2 lg:p-3 rounded-lg hover:bg-glitchRed/10 transition-all duration-300 border flex-shrink-0 ${
           editor.isActive('bulletList')
             ? 'active bg-glitchRed/20 text-glitchRed border-glitchRed/50'
             : 'text-slate-400 border-transparent hover:border-glitchRed/30'
         }`}
       >
-        <ListBulletIcon className="w-4 h-4" />
+        <ListBulletIcon className="w-3 h-3 lg:w-4 lg:h-4" />
       </button>
       <button
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={`p-3 rounded-lg hover:bg-glitchRed/10 transition-all duration-300 border ${
+        className={`p-2 lg:p-3 rounded-lg hover:bg-glitchRed/10 transition-all duration-300 border flex-shrink-0 ${
           editor.isActive('orderedList')
             ? 'active bg-glitchRed/20 text-glitchRed border-glitchRed/50'
             : 'text-slate-400 border-transparent hover:border-glitchRed/30'
         }`}
       >
-        <NumberedListIcon className="w-4 h-4" />
+        <NumberedListIcon className="w-3 h-3 lg:w-4 lg:h-4" />
       </button>
       <button
         onClick={() => editor.chain().focus().toggleBlockquote().run()}
-        className={`p-3 rounded-lg hover:bg-glitchRed/10 transition-all duration-300 border ${
+        className={`p-2 lg:p-3 rounded-lg hover:bg-glitchRed/10 transition-all duration-300 border flex-shrink-0 ${
           editor.isActive('blockquote')
             ? 'active bg-glitchRed/20 text-glitchRed border-glitchRed/50'
             : 'text-slate-400 border-transparent hover:border-glitchRed/30'
         }`}
       >
-        <ChatBubbleLeftIcon className="w-4 h-4" />
+        <ChatBubbleLeftIcon className="w-3 h-3 lg:w-4 lg:h-4" />
       </button>
 
-      <div className="w-px h-6 bg-glitchRed/30 mx-3"></div>
+      <div className="w-px h-4 lg:h-6 bg-glitchRed/30 mx-1 lg:mx-3 flex-shrink-0"></div>
 
       <select
         onChange={(e) => {
@@ -103,12 +103,12 @@ const MenuBar = ({ editor }) => {
           editor.isActive('heading', { level: 2 }) ? 2 :
           editor.isActive('heading', { level: 3 }) ? 3 : 0
         }
-        className="text-sm border border-glitchRed/30 bg-darkBg text-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-glitchRed/50 focus:border-glitchRed ui-text"
+        className="text-xs lg:text-sm border border-glitchRed/30 bg-darkBg text-slate-300 rounded-lg px-2 lg:px-3 py-1 lg:py-2 focus:outline-none focus:ring-2 focus:ring-glitchRed/50 focus:border-glitchRed ui-text min-w-0 flex-shrink-0"
       >
         <option value={0} className="bg-darkBg text-slate-300">Paragraph</option>
-        <option value={1} className="bg-darkBg text-slate-300">Chapter Title</option>
+        <option value={1} className="bg-darkBg text-slate-300">Chapter</option>
         <option value={2} className="bg-darkBg text-slate-300">Section</option>
-        <option value={3} className="bg-darkBg text-slate-300">Subsection</option>
+        <option value={3} className="bg-darkBg text-slate-300">Sub</option>
       </select>
     </div>
   )
