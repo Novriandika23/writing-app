@@ -24,11 +24,11 @@ function Layout() {
   }
 
   return (
-    <div className="min-h-screen dark-fantasy-bg">
+    <div className="min-h-screen dark-fantasy-bg flex">
       <Sidebar />
-      <div className="lg:ml-64 flex flex-col min-h-screen w-full">
+      <div className="flex-1 flex flex-col min-h-screen overflow-hidden">
         <Header />
-        <main className="flex-1 overflow-auto w-full">
+        <main className="flex-1 overflow-auto">
           <Outlet />
         </main>
       </div>

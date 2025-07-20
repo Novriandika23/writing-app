@@ -284,13 +284,6 @@
     .input-field {
       font-size: 16px; /* Prevent zoom on iOS */
     }
-
-    /* Force mobile layout */
-    @media (max-width: 1023px) {
-      .lg\:ml-64 {
-        margin-left: 0 !important;
-      }
-    }
   }
 
   /* Tablet adjustments */
