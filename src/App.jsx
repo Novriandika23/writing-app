@@ -10,6 +10,7 @@ import usePageTitle from './hooks/usePageTitle'
 const StoriesPage = lazy(() => import('./components/Stories/StoriesPage'))
 const StoryEditor = lazy(() => import('./components/Stories/StoryEditor'))
 const AIAssistant = lazy(() => import('./components/AI/AIAssistant'))
+const WritingGoals = lazy(() => import('./components/Goals/WritingGoals'))
 
 // Placeholder components for other pages
 const CharactersPage = () => {
@@ -134,6 +135,11 @@ function App() {
           <Route path="ai" element={
             <Suspense fallback={<LoadingSpinner className="min-h-screen" />}>
               <AIPage />
+            </Suspense>
+          } />
+          <Route path="goals" element={
+            <Suspense fallback={<LoadingSpinner className="min-h-screen" />}>
+              <WritingGoals />
             </Suspense>
           } />
           <Route path="settings" element={<SettingsPage />} />

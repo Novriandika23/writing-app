@@ -8,7 +8,8 @@ import {
   SparklesIcon,
   Cog6ToothIcon,
   ChevronLeftIcon,
-  ChevronRightIcon
+  ChevronRightIcon,
+  FireIcon
 } from '@heroicons/react/24/outline'
 
 const navigation = [
@@ -16,6 +17,7 @@ const navigation = [
   { name: 'Personas', href: '/characters', icon: UserGroupIcon, runicName: 'Souls' },
   { name: 'Fate Weaver', href: '/plot', icon: ChartBarIcon, runicName: 'Destiny' },
   { name: 'Realm Forge', href: '/world', icon: MapIcon, runicName: 'Worlds' },
+  { name: 'Sacred Goals', href: '/goals', icon: FireIcon, runicName: 'Sanctum' },
   { name: 'Oracle', href: '/ai', icon: SparklesIcon, runicName: 'Wisdom' },
   { name: 'Arcane', href: '/settings', icon: Cog6ToothIcon, runicName: 'Runes' },
 ]

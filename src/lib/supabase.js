@@ -178,5 +178,40 @@ export const db = {
       .delete()
       .eq('id', id)
     return { error }
+  },
+
+  // Writing Goals
+  getGoals: async (userId) => {
+    const { data, error } = await supabase
+      .from('writing_goals')
+      .select('*')
+      .eq('user_id', userId)
+      .order('created_at', { ascending: false })
+    return { data, error }
+  },
+
+  createGoal: async (goal) => {
+    const { data, error } = await supabase
+      .from('writing_goals')
+      .insert([goal])
+      .select()
+    return { data, error }
+  },
+
+  updateGoal: async (id, updates) => {
+    const { data, error } = await supabase
+      .from('writing_goals')
+      .update(updates)
+      .eq('id', id)
+      .select()
+    return { data, error }
+  },
+
+  deleteGoal: async (id) => {
+    const { error } = await supabase
+      .from('writing_goals')
+      .delete()
+      .eq('id', id)
+    return { error }
   }
 }
