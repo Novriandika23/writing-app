@@ -42,6 +42,38 @@ cp .env.example .env
 npm run dev
 ```
 
+## 🌐 Deploy to Vercel
+
+### Option 1: Deploy via Vercel Dashboard
+
+1. Go to [vercel.com](https://vercel.com)
+2. Click "New Project"
+3. Import your GitHub repository: `Novriandika23/writing-app`
+4. Set root directory to: `fiction-writer-app`
+5. Add environment variables:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+   - `VITE_OPENAI_API_KEY` (optional)
+6. Click "Deploy"
+
+### Option 2: Deploy via Vercel CLI
+
+1. Install Vercel CLI:
+```bash
+npm i -g vercel
+```
+
+2. Login to Vercel:
+```bash
+vercel login
+```
+
+3. Deploy from project directory:
+```bash
+cd fiction-writer-app
+vercel
+```
+
 ## Project Structure
 
 ```
