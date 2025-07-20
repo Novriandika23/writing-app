@@ -82,10 +82,10 @@ export default function StoriesPage() {
   }
 
   return (
-    <div className="min-h-screen dark-fantasy-bg stone-texture fade-in-slow">
-      <div className="p-4 lg:p-8">
+    <div className="min-h-screen dark-fantasy-bg stone-texture fade-in-slow w-full">
+      <div className="p-4 lg:p-8 w-full max-w-full">
         {/* Gothic Header */}
-        <div className="mb-8 lg:mb-12">
+        <div className="mb-8 lg:mb-12 w-full">
           {/* Desktop Layout - Side by side */}
           <div className="hidden lg:flex lg:items-center justify-between">
             <div>
@@ -111,19 +111,19 @@ export default function StoriesPage() {
 
           {/* Mobile Layout - Stacked */}
           <div className="lg:hidden">
-            <div className="text-center mb-6">
-              <h1 className="text-3xl font-bold gothic-title tracking-wider mb-3">
+            <div className="text-center mb-6 px-4">
+              <h1 className="text-2xl lg:text-3xl font-bold gothic-title tracking-wider mb-3">
                 Chronicle Sanctum
               </h1>
-              <p className="medieval-text text-lg mb-4">
+              <p className="medieval-text text-base lg:text-lg mb-4">
                 Sacred repository of thy written realms
               </p>
               <button
                 onClick={() => setShowCreateModal(true)}
-                className="btn-primary group w-full"
+                className="btn-primary group w-full max-w-sm mx-auto"
               >
                 <div className="flex items-center justify-center">
-                  <svg className="w-5 h-5 mr-2 magical-pen" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 mr-2 magical-pen" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M3,17.25V21H6.75L17.81,9.94L14.06,6.19L3,17.25M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04Z" />
                   </svg>
                   <span className="text-white font-semibold tracking-wide text-sm">Forge New Chronicle</span>

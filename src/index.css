@@ -272,11 +272,24 @@
     /* Prevent horizontal scroll on mobile */
     body {
       overflow-x: hidden;
+      width: 100%;
+    }
+
+    html {
+      overflow-x: hidden;
+      width: 100%;
     }
 
     /* Mobile input fields */
     .input-field {
       font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    /* Force mobile layout */
+    @media (max-width: 1023px) {
+      .lg\:ml-64 {
+        margin-left: 0 !important;
+      }
     }
   }
 

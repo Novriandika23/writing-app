@@ -60,7 +60,8 @@ function Sidebar() {
         w-64
         lg:relative lg:translate-x-0
         ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
-        fixed lg:static top-0 left-0 h-full z-40
+        fixed lg:fixed top-0 left-0 h-full z-50
+        lg:block
       `}>
       <div className="flex flex-col h-full">
         {/* Gothic Header */}
