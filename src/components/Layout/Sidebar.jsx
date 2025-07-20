@@ -22,35 +22,76 @@ const navigation = [
 
 function Sidebar() {
   const [collapsed, setCollapsed] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const location = useLocation()
 
   const toggleCollapsed = useCallback(() => {
     setCollapsed(prev => !prev)
   }, [])
 
+  const toggleMobileMenu = useCallback(() => {
+    setMobileMenuOpen(prev => !prev)
+  }, [])
+
   return (
-    <div className={`bg-gradient-to-b from-darkBg to-darkBg-soft border-r border-glitchRed/20 transition-all duration-300 stone-texture ${
-      collapsed ? 'w-16' : 'w-64'
-    }`}>
+    <>
+      {/* Mobile Menu Button */}
+      <button
+        onClick={toggleMobileMenu}
+        className="lg:hidden fixed top-4 left-4 z-50 p-3 bg-darkBg border border-glitchRed/30 rounded-lg text-slate-400 hover:text-glitchRed transition-colors duration-300"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      {/* Mobile Overlay */}
+      {mobileMenuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black/50 z-40"
+          onClick={toggleMobileMenu}
+        />
+      )}
+
+      {/* Sidebar */}
+      <div className={`
+        bg-gradient-to-b from-darkBg to-darkBg-soft border-r border-glitchRed/20 transition-all duration-300 stone-texture
+        ${collapsed ? 'w-16' : 'w-64'}
+        lg:relative lg:translate-x-0
+        ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}
+        fixed lg:static top-0 left-0 h-full z-40
+      `}>
       <div className="flex flex-col h-full">
         {/* Gothic Header */}
         <div className={`flex items-center p-4 border-b border-glitchRed/20 ${
           collapsed ? 'justify-center' : 'justify-between'
         }`}>
           {!collapsed && (
-            <h1 className="text-xl font-bold gothic-title tracking-wider">
+            <h1 className="text-lg lg:text-xl font-bold gothic-title tracking-wider">
               Mystical Quill
             </h1>
           )}
+
+          {/* Desktop Collapse Button */}
           <button
             onClick={toggleCollapsed}
-            className="p-2 hover:bg-glitchRed/10 rounded-lg transition-all duration-300 border border-transparent hover:border-glitchRed/30"
+            className="hidden lg:block p-2 hover:bg-glitchRed/10 rounded-lg transition-all duration-300 border border-transparent hover:border-glitchRed/30"
           >
             {collapsed ? (
               <ChevronRightIcon className="w-4 h-4 text-slate-400 hover:text-glitchRed transition-colors duration-300" />
             ) : (
               <ChevronLeftIcon className="w-4 h-4 text-slate-400 hover:text-glitchRed transition-colors duration-300" />
             )}
+          </button>
+
+          {/* Mobile Close Button */}
+          <button
+            onClick={toggleMobileMenu}
+            className="lg:hidden p-2 hover:bg-glitchRed/10 rounded-lg transition-all duration-300 border border-transparent hover:border-glitchRed/30"
+          >
+            <svg className="w-5 h-5 text-slate-400 hover:text-glitchRed transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
           </button>
         </div>
 
@@ -62,6 +103,7 @@ function Sidebar() {
               <Link
                 key={item.name}
                 to={item.href}
+                onClick={() => setMobileMenuOpen(false)}
                 className={`group flex items-center rounded-lg transition-all duration-300 ${
                   collapsed
                     ? 'justify-center p-3 mx-auto w-12 h-12'
@@ -115,6 +157,7 @@ function Sidebar() {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

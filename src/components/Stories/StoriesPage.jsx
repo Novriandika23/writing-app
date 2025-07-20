@@ -83,20 +83,20 @@ export default function StoriesPage() {
 
   return (
     <div className="min-h-screen dark-fantasy-bg stone-texture fade-in-slow">
-      <div className="p-8">
+      <div className="p-4 lg:p-8">
         {/* Gothic Header */}
-        <div className="flex items-center justify-between mb-12">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-8 lg:mb-12 space-y-4 lg:space-y-0">
           <div>
-            <h1 className="text-5xl font-bold gothic-title tracking-wider mb-4">
+            <h1 className="text-3xl lg:text-5xl font-bold gothic-title tracking-wider mb-2 lg:mb-4">
               Chronicle Sanctum
             </h1>
-            <p className="medieval-text text-xl">
+            <p className="medieval-text text-lg lg:text-xl">
               Sacred repository of thy written realms
             </p>
           </div>
           <button
             onClick={() => setShowCreateModal(true)}
-            className="btn-primary group"
+            className="btn-primary group w-full lg:w-auto"
           >
             <div className="flex items-center">
               <svg className="w-6 h-6 mr-3 magical-pen" fill="currentColor" viewBox="0 0 24 24">
@@ -109,17 +109,17 @@ export default function StoriesPage() {
 
         {/* Chronicles Grid */}
         {stories.length === 0 ? (
-          <div className="text-center py-24 relative">
+          <div className="text-center py-12 lg:py-24 relative">
             {/* Dark Mystical Atmosphere */}
             <div className="absolute inset-0 opacity-40">
-              <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-glitchRed/5 rounded-full blur-2xl"></div>
-              <div className="absolute top-1/3 right-1/3 w-32 h-32 bg-darkBg-soft/80 rounded-full blur-xl"></div>
-              <div className="absolute bottom-1/3 left-1/2 w-36 h-36 bg-glitchRed/3 rounded-full blur-2xl"></div>
+              <div className="absolute top-1/4 left-1/4 w-20 lg:w-40 h-20 lg:h-40 bg-glitchRed/5 rounded-full blur-2xl"></div>
+              <div className="absolute top-1/3 right-1/3 w-16 lg:w-32 h-16 lg:h-32 bg-darkBg-soft/80 rounded-full blur-xl"></div>
+              <div className="absolute bottom-1/3 left-1/2 w-18 lg:w-36 h-18 lg:h-36 bg-glitchRed/3 rounded-full blur-2xl"></div>
             </div>
 
             {/* Gothic Grimoire */}
-            <div className="relative z-10 mb-12">
-              <div className="mx-auto w-32 h-32 relative mystical-glow">
+            <div className="relative z-10 mb-8 lg:mb-12">
+              <div className="mx-auto w-24 lg:w-32 h-24 lg:h-32 relative mystical-glow">
                 <svg className="w-full h-full text-glitchRed magical-pen" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19,2L14,6.5V17.5L19,13V2M6.5,5C4.55,5 2.45,5.4 1,6.5V21.16C1,21.41 1.25,21.66 1.5,21.66C1.6,21.66 1.65,21.59 1.75,21.59C3.1,20.94 5.05,20.5 6.5,20.5C8.45,20.5 10.55,20.9 12,22C13.35,21.15 15.8,20.5 17.5,20.5C19.15,20.5 20.85,20.81 22.25,21.56C22.35,21.61 22.4,21.66 22.5,21.66C22.75,21.66 23,21.41 23,21.16V6.5C22.4,6.05 21.75,5.75 21,5.5V19C19.9,18.65 18.7,18.5 17.5,18.5C15.8,18.5 13.35,19.15 12,20V8C10.55,6.9 8.45,6.5 6.5,6.5C5.05,6.5 3.1,6.94 1.75,7.59V6.5C3.1,5.65 5.05,5 6.5,5Z"/>
                 </svg>
@@ -140,10 +140,10 @@ export default function StoriesPage() {
               </div>
             </div>
 
-            <h3 className="text-3xl font-medium gothic-title mb-6">
+            <h3 className="text-2xl lg:text-3xl font-medium gothic-title mb-4 lg:mb-6">
               The Sanctum Awaits
             </h3>
-            <p className="medieval-text text-xl mb-12 max-w-lg mx-auto">
+            <p className="medieval-text text-lg lg:text-xl mb-8 lg:mb-12 max-w-lg mx-auto px-4">
               No chronicles have been inscribed upon these sacred pages. Let thy quill dance across the void and birth new realms.
             </p>
             <button
@@ -159,12 +159,12 @@ export default function StoriesPage() {
             </button>
           </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-8">
           {stories.map((story) => (
             <Link
               key={story.id}
               to={`/stories/${story.id}`}
-              className="group relative medieval-card gothic-frame p-8 hover:border-glitchRed/60 transition-all duration-500 transform hover:scale-105 cursor-pointer"
+              className="group relative medieval-card gothic-frame p-4 lg:p-8 hover:border-glitchRed/60 transition-all duration-500 transform hover:scale-105 cursor-pointer"
             >
               {/* Gothic Corner Ornaments */}
               <div className="absolute top-3 left-3 w-4 h-4 border-l-2 border-t-2 border-glitchRed/40"></div>
@@ -172,17 +172,17 @@ export default function StoriesPage() {
               <div className="absolute bottom-3 left-3 w-4 h-4 border-l-2 border-b-2 border-glitchRed/40"></div>
               <div className="absolute bottom-3 right-3 w-4 h-4 border-r-2 border-b-2 border-glitchRed/40"></div>
 
-              <div className="flex items-start justify-between mb-6">
-                <h3 className="text-xl font-semibold text-slate-100 font-serif line-clamp-2 group-hover:text-glitchRed transition-colors duration-300">
+              <div className="flex items-start justify-between mb-4 lg:mb-6">
+                <h3 className="text-lg lg:text-xl font-semibold text-slate-100 font-serif line-clamp-2 group-hover:text-glitchRed transition-colors duration-300 flex-1 mr-2">
                   {story.title}
                 </h3>
-                <span className={`px-3 py-1 text-xs font-medium ${getStatusColor(story.status)} ui-text`}>
+                <span className={`px-2 lg:px-3 py-1 text-xs font-medium ${getStatusColor(story.status)} ui-text whitespace-nowrap`}>
                   {story.status.replace('_', ' ')}
                 </span>
               </div>
 
               {story.description && (
-                <p className="medieval-text text-base mb-6 line-clamp-3 leading-relaxed">
+                <p className="medieval-text text-sm lg:text-base mb-4 lg:mb-6 line-clamp-3 leading-relaxed">
                   {story.description}
                 </p>
               )}
@@ -217,14 +217,14 @@ export default function StoriesPage() {
         {/* Gothic Create Story Modal */}
         {showCreateModal && (
           <div className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-            <div className="bg-gradient-to-br from-darkBg to-darkBg-soft rounded-2xl max-w-md w-full p-8 border-2 border-glitchRed/30 mystical-glow relative gothic-frame">
+            <div className="bg-gradient-to-br from-darkBg to-darkBg-soft rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto p-4 lg:p-8 border-2 border-glitchRed/30 mystical-glow relative gothic-frame">
               {/* Gothic Corner Decorations */}
               <div className="absolute top-3 left-3 w-4 h-4 border-l-2 border-t-2 border-glitchRed/70"></div>
               <div className="absolute top-3 right-3 w-4 h-4 border-r-2 border-t-2 border-glitchRed/70"></div>
               <div className="absolute bottom-3 left-3 w-4 h-4 border-l-2 border-b-2 border-glitchRed/70"></div>
               <div className="absolute bottom-3 right-3 w-4 h-4 border-r-2 border-b-2 border-glitchRed/70"></div>
 
-              <h2 className="text-3xl font-semibold text-slate-100 mb-8 medieval-font text-center gothic-title">
+              <h2 className="text-2xl lg:text-3xl font-semibold text-slate-100 mb-6 lg:mb-8 medieval-font text-center gothic-title">
                 Forge New Chronicle
               </h2>
 

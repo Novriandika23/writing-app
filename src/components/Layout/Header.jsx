@@ -19,33 +19,33 @@ function Header() {
   }, [signOut])
 
   return (
-    <header className="bg-gradient-to-r from-darkBg to-darkBg-soft border-b-2 border-glitchRed/20 px-8 py-6 stone-texture">
+    <header className="bg-gradient-to-r from-darkBg to-darkBg-soft border-b-2 border-glitchRed/20 px-4 lg:px-8 py-4 lg:py-6 stone-texture">
       <div className="flex items-center justify-between">
         {/* Gothic Search Area */}
-        <div className="flex-1">
+        <div className="flex-1 mr-4">
           <div className="max-w-lg">
             <input
               type="search"
-              placeholder="Search stories, characters, or notes..."
-              className="input-field text-base"
+              placeholder="Search stories, characters..."
+              className="input-field text-sm lg:text-base w-full"
             />
           </div>
         </div>
 
         {/* Gothic Right Side - notifications and user menu */}
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-2 lg:space-x-6">
           {/* Mystical Notifications */}
-          <button className="relative p-3 text-slate-400 hover:text-glitchRed focus:outline-none focus:ring-2 focus:ring-glitchRed focus:ring-offset-2 focus:ring-offset-darkBg rounded-lg transition-all duration-300 border border-transparent hover:border-glitchRed/30 hover:bg-glitchRed/5">
-            <BellIcon className="w-6 h-6" />
+          <button className="relative p-2 lg:p-3 text-slate-400 hover:text-glitchRed focus:outline-none focus:ring-2 focus:ring-glitchRed focus:ring-offset-2 focus:ring-offset-darkBg rounded-lg transition-all duration-300 border border-transparent hover:border-glitchRed/30 hover:bg-glitchRed/5">
+            <BellIcon className="w-5 h-5 lg:w-6 lg:h-6" />
             {notifications.length > 0 && (
-              <span className="absolute top-1 right-1 block w-3 h-3 bg-glitchRed rounded-full mystical-glow"></span>
+              <span className="absolute top-1 right-1 block w-2 h-2 lg:w-3 lg:h-3 bg-glitchRed rounded-full mystical-glow"></span>
             )}
           </button>
 
           {/* Gothic User Menu */}
           <Menu as="div" className="relative">
-            <Menu.Button className="flex items-center p-3 text-slate-400 hover:text-glitchRed focus:outline-none focus:ring-2 focus:ring-glitchRed focus:ring-offset-2 focus:ring-offset-darkBg rounded-lg transition-all duration-300 border border-transparent hover:border-glitchRed/30 hover:bg-glitchRed/5">
-              <UserCircleIcon className="w-8 h-8" />
+            <Menu.Button className="flex items-center p-2 lg:p-3 text-slate-400 hover:text-glitchRed focus:outline-none focus:ring-2 focus:ring-glitchRed focus:ring-offset-2 focus:ring-offset-darkBg rounded-lg transition-all duration-300 border border-transparent hover:border-glitchRed/30 hover:bg-glitchRed/5">
+              <UserCircleIcon className="w-6 h-6 lg:w-8 lg:h-8" />
             </Menu.Button>
 
             <Transition
@@ -57,7 +57,7 @@ function Header() {
               leaveFrom="transform opacity-100 scale-100"
               leaveTo="transform opacity-0 scale-95"
             >
-              <Menu.Items className="absolute right-0 z-10 mt-3 w-72 origin-top-right bg-gradient-to-br from-darkBg to-darkBg-soft rounded-lg shadow-2xl ring-2 ring-glitchRed/30 focus:outline-none border border-glitchRed/20 gothic-frame">
+              <Menu.Items className="absolute right-0 z-10 mt-3 w-64 lg:w-72 origin-top-right bg-gradient-to-br from-darkBg to-darkBg-soft rounded-lg shadow-2xl ring-2 ring-glitchRed/30 focus:outline-none border border-glitchRed/20 gothic-frame">
                 <div className="py-2">
                   <div className="px-6 py-4 border-b-2 border-glitchRed/20">
                     <p className="text-base font-medium text-slate-100 medieval-font truncate max-w-full">

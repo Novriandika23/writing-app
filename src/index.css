@@ -223,6 +223,46 @@
       0 0 4px #ff1a33;
   }
 
+  /* 📱 RESPONSIVE UTILITIES */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Mobile-first responsive adjustments */
+  @media (max-width: 768px) {
+    .btn-primary {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+
+    .gothic-title {
+      font-size: clamp(1.5rem, 4vw, 3rem);
+    }
+
+    .medieval-text {
+      font-size: clamp(0.875rem, 2.5vw, 1.125rem);
+    }
+  }
+
+  /* Tablet adjustments */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .gothic-title {
+      font-size: clamp(2rem, 5vw, 4rem);
+    }
+  }
+
   @keyframes glitch-flicker {
     0%   { opacity: 1; text-shadow: 1px 1px #ff1a33; }
     20%  { opacity: 0.9; text-shadow: -1px 1px #ff0033; }
