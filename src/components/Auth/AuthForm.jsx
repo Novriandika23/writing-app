@@ -146,7 +146,7 @@ export default function AuthForm() {
                 placeholder="Enter your email"
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-red-400 rune-font">{errors.email}</p>
+                <p className="mt-1 text-sm text-red-400 rune-font glitch-red-text glitch-animate">{errors.email}</p>
               )}
             </div>
 
@@ -178,7 +178,7 @@ export default function AuthForm() {
                 </button>
               </div>
               {errors.password && (
-                <p className="mt-1 text-sm text-red-400 rune-font">{errors.password}</p>
+                <p className="mt-1 text-sm text-red-400 rune-font glitch-red-text glitch-animate">{errors.password}</p>
               )}
             </div>
 
@@ -198,7 +198,7 @@ export default function AuthForm() {
                   placeholder="Confirm your password"
                 />
                 {errors.confirmPassword && (
-                  <p className="mt-1 text-sm text-red-400 rune-font">{errors.confirmPassword}</p>
+                  <p className="mt-1 text-sm text-red-400 rune-font glitch-red-text glitch-animate">{errors.confirmPassword}</p>
                 )}
               </div>
             )}
@@ -206,7 +206,7 @@ export default function AuthForm() {
 
           {errors.submit && (
             <div className="bg-red-900/30 border border-red-500/50 rounded-lg p-4 backdrop-blur-sm">
-              <p className="text-sm text-red-300 rune-font">{errors.submit}</p>
+              <p className="text-sm text-red-300 rune-font glitch-red-text glitch-animate">{errors.submit}</p>
             </div>
           )}
 
@@ -219,7 +219,7 @@ export default function AuthForm() {
               {loading ? (
                 <div className="flex items-center justify-center">
                   <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                  <span className="rune-font">{isSignUp ? 'Creating account...' : 'Signing in...'}</span>
+                  <span className="rune-font glitch-red-text glitch-animate">{isSignUp ? 'Creating account...' : 'Signing in...'}</span>
                 </div>
               ) : (
                 isSignUp ? 'Create account' : 'Sign in'

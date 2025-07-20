@@ -30,13 +30,24 @@ export default {
           700: '#a21caf',
           800: '#86198f',
           900: '#701a75',
-        }
+        },
+        glitchRed: {
+          DEFAULT: '#ff003c', // warna merah terang glitch
+          deep: '#b3002d',     // versi lebih gelap
+        },
+        darkBg: {
+          DEFAULT: '#0b0c10',  // latar belakang gelap utama
+          soft: '#1f1f1f',     // elemen sekunder
+        },
+        goldAccent: '#d4af37', // opsional jika masih ingin aksen emas
       },
       fontFamily: {
-        'serif': ['Crimson Text', 'serif'],
-        'sans': ['Inter', 'sans-serif'],
+        serif: ['"Crimson Text"', 'serif'],
+        sans: ['"Inter"', 'sans-serif'],
+        gothic: ['"UnifrakturCook"', 'serif'], // opsional untuk judul medieval
       }
     },
   },
   plugins: [],
 }
+

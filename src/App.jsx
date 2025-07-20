@@ -20,7 +20,7 @@ const CharactersPage = () => {
               <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
             </svg>
           </div>
-          <h1 className="text-4xl font-bold text-amber-100 medieval-font mb-4">Souls of the Realm</h1>
+          <h1 className="text-4xl font-bold text-amber-100 medieval-font mb-4 glitch-red-text glitch-animate">Souls of the Realm</h1>
           <p className="text-amber-200/70 rune-font text-lg">Character weaving shall be unveiled soon...</p>
         </div>
       </div>
@@ -39,7 +39,7 @@ const PlotPage = () => {
               <path d="M2.5,19H21.5V21H2.5V19M22.07,9.64C21.86,8.84 21.03,8.36 20.23,8.58L14.92,10L8.09,8.07L1.93,9.64C1.13,9.86 0.65,10.69 0.87,11.49L0.96,11.82C1.18,12.62 2.01,13.1 2.81,12.88L8.09,11.5L15.91,13.93L22.07,12.36C22.87,12.14 23.35,11.31 23.13,10.51L23.04,10.18C22.82,9.38 21.99,8.9 21.19,9.12L22.07,9.64M7.5,5.5C7.5,4.67 8.17,4 9,4H15C15.83,4 16.5,4.67 16.5,5.5V7H7.5V5.5Z" />
             </svg>
           </div>
-          <h1 className="text-4xl font-bold text-amber-100 medieval-font mb-4">Fate Weaver</h1>
+          <h1 className="text-4xl font-bold text-amber-100 medieval-font mb-4 glitch-red-text glitch-animate">Fate Weaver</h1>
           <p className="text-amber-200/70 rune-font text-lg">Destiny's threads await thy guidance...</p>
         </div>
       </div>
@@ -89,7 +89,7 @@ function ProtectedRoute({ children }) {
       <div className="min-h-screen flex items-center justify-center dark-fantasy-bg">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500 mx-auto"></div>
-          <p className="mt-4 text-amber-200 rune-font">Awakening the mystical realm...</p>
+          <p className="mt-4 text-amber-200 rune-font glitch-red-text glitch-animate">Awakening the mystical realm...</p>
         </div>
       </div>
     )

@@ -24,7 +24,7 @@ const MenuBar = ({ editor }) => {
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
         className={`p-2 rounded hover:bg-slate-700/50 transition-all duration-200 ${
-          editor.isActive('bold') ? 'active bg-purple-600/30 text-purple-300' : 'text-slate-300'
+          editor.isActive('bold') ? 'active bg-purple-600/30 text-purple-300 glitch-red-text' : 'text-slate-300'
         }`}
       >
         <BoldIcon className="w-4 h-4" />
@@ -33,7 +33,7 @@ const MenuBar = ({ editor }) => {
         onClick={() => editor.chain().focus().toggleItalic().run()}
         disabled={!editor.can().chain().focus().toggleItalic().run()}
         className={`p-2 rounded hover:bg-slate-700/50 transition-all duration-200 ${
-          editor.isActive('italic') ? 'active bg-purple-600/30 text-purple-300' : 'text-slate-300'
+          editor.isActive('italic') ? 'active bg-purple-600/30 text-purple-300 glitch-red-text' : 'text-slate-300'
         }`}
       >
         <ItalicIcon className="w-4 h-4" />
@@ -42,7 +42,7 @@ const MenuBar = ({ editor }) => {
         onClick={() => editor.chain().focus().toggleStrike().run()}
         disabled={!editor.can().chain().focus().toggleStrike().run()}
         className={`p-2 rounded hover:bg-slate-700/50 transition-all duration-200 ${
-          editor.isActive('strike') ? 'active bg-purple-600/30 text-purple-300' : 'text-slate-300'
+          editor.isActive('strike') ? 'active bg-purple-600/30 text-purple-300 glitch-red-text' : 'text-slate-300'
         }`}
       >
         <UnderlineIcon className="w-4 h-4" />
@@ -187,11 +187,11 @@ export default function RichTextEditor({
       </div>
       <div className="border-t border-slate-700/50 px-4 py-2 bg-gradient-to-r from-slate-800/40 to-slate-700/40 text-sm text-slate-400 flex justify-between items-center">
         <span className="flex items-center space-x-2">
-          <span className="text-purple-400 font-medium">
+          <span className="text-purple-400 font-medium glitch-red-text">
             {editor.storage.characterCount.words()}
           </span>
           <span>words,</span>
-          <span className="text-purple-400 font-medium">
+          <span className="text-purple-400 font-medium glitch-red-text">
             {editor.storage.characterCount.characters()}
           </span>
           <span>characters</span>

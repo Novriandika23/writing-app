@@ -32,7 +32,7 @@ export default function Sidebar() {
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-amber-700/30">
           {!collapsed && (
-            <h1 className="text-xl font-bold text-amber-100 medieval-font">
+            <h1 className="text-xl font-bold text-amber-100 medieval-font glitch-red-text glitch-animate">
               Mystical Quill
             </h1>
           )}

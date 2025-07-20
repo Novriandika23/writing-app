@@ -132,7 +132,7 @@ export default function StoryEditor() {
                 {saving && (
                   <div className="flex items-center text-purple-400">
                     <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-purple-400 mr-1"></div>
-                    <span className="hidden sm:inline">Saving...</span>
+                    <span className="hidden sm:inline glitch-red-text glitch-animate">Saving...</span>
                   </div>
                 )}
               </div>

@@ -141,4 +141,28 @@
         inset 0 0 30px rgba(139, 69, 19, 0.2);
     }
   }
+
+  /* 🔥 GLITCH RED TEXT */
+  .glitch-red-text {
+    color: #ff1a33;
+    text-shadow:
+      1px 0 #ff0033,
+      -1px 0 #ff3366,
+      0 1px #ff0044,
+      0 -1px #ff3366,
+      0 0 4px #ff1a33;
+  }
+
+  @keyframes glitch-flicker {
+    0%   { opacity: 1; text-shadow: 1px 1px #ff1a33; }
+    20%  { opacity: 0.9; text-shadow: -1px 1px #ff0033; }
+    40%  { opacity: 1; text-shadow: 1px -1px #ff3366; }
+    60%  { opacity: 0.95; text-shadow: -1px -1px #ff0044; }
+    80%  { opacity: 1; text-shadow: 0 0 6px #ff1a33; }
+    100% { opacity: 1; text-shadow: 0 0 3px #ff3366; }
+  }
+
+  .glitch-animate {
+    animation: glitch-flicker 1.5s infinite alternate;
+  }
 }

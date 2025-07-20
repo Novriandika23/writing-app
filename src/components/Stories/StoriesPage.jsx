@@ -102,7 +102,7 @@ export default function StoriesPage() {
               <svg className="w-5 h-5 mr-2 magical-pen" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M3,17.25V21H6.75L17.81,9.94L14.06,6.19L3,17.25M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04Z" />
               </svg>
-              <span className="medieval-font">Start a New Tale</span>
+              <span className="medieval-font glitch-red-text">Start a New Tale</span>
             </div>
           </button>
         </div>
@@ -154,7 +154,7 @@ export default function StoriesPage() {
                 <svg className="w-6 h-6 mr-3 magical-pen" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M3,17.25V21H6.75L17.81,9.94L14.06,6.19L3,17.25M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04Z" />
                 </svg>
-                <span className="medieval-font text-lg">Tell Thy Tale</span>
+                <span className="medieval-font text-lg glitch-red-text glitch-animate">Tell Thy Tale</span>
               </div>
             </button>
           </div>
